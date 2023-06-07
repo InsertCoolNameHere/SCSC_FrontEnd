@@ -8,6 +8,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import React from 'react';
 import './scsc_style.css'
+import AuthenticationButton from './authentication-button';
 
 const options = [
     'Admin Login',
@@ -52,12 +53,11 @@ function Top_Menubar() {
                         }}
                         open={Boolean(anchorEl)}
                         PaperProps={{ style: { maxHeight: ITEM_HEIGHT * 4.5, width: '20ch' } }} >
-                        {options.map((option) => (
-                            <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
-                                {option}
-                            </MenuItem>
-                        ))}
+                        <MenuItem><AuthenticationButton /></MenuItem>
+                    
+                    
                     </Menu>
+                    
 
 
 
