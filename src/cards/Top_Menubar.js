@@ -3,7 +3,7 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import MenuIcon from '@mui/icons-material/Menu';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import React from 'react';
@@ -29,28 +29,19 @@ function Top_Menubar() {
     };
     return (
         <>
-    
+
             <AppBar>
                 <Toolbar>
                     <Typography variant="h4" color="inherit" component="div">
                         <b>SCSC</b>
                     </Typography>
-                        <IconButton
-                            edge="start"
-                            aria-label="more"
-                            id="long-button"
-                            aria-controls="menu-appbar"
-                            
-                            aria-haspopup="true"
-                            onClick={handleClick}
-                            sx={{ marginLeft: "auto" }}
-                        >
-                            <MenuIcon sx={{ color: "white" }} />
-                        </IconButton>
-                    
-                    <Menu id="long-menu" MenuListProps={{ 'aria-labelledby': 'long-button', }} 
-                    onClose={handleClose} 
-                    keepMounted
+                    <IconButton edge="start" aria-label="more" id="long-button" aria-controls="menu-appbar" aria-haspopup="true" onClick={handleClick} sx={{ marginLeft: "auto" }} >
+                        <AccountCircleIcon sx={{ color: "white" }} />
+                    </IconButton>
+
+                    <Menu id="long-menu" MenuListProps={{ 'aria-labelledby': 'long-button', }}
+                        onClose={handleClose}
+                        keepMounted
                         anchorOrigin={{
                             vertical: 'top',
                             horizontal: 'right',

@@ -1,5 +1,7 @@
-import CustomizedDialogs from "./popups/DataDescriptionPopup";
+import DataDownloadPopup from "./popups/DataDownloadPopup";
+
 import React from 'react';
+import { ChangeEvent, useState } from 'react';
 
 function DataCard({ data_name, uploader_name, num_files, type_string, total_size, img_path }) {
     const [open, setOpen] = React.useState(false);
@@ -9,6 +11,18 @@ function DataCard({ data_name, uploader_name, num_files, type_string, total_size
     const handleClose = () => {
         setOpen(false);
     };
+
+
+
+    const [open1, setOpen1] = React.useState(false);
+    const handleClickOpen1 = () => {
+        setOpen1(true);
+    };
+    const handleClose1 = () => {
+        setOpen1(false);
+    };
+
+
     //console.log("$"+img_path+"$")
     //var logo = require('./atom.png');
     return (
@@ -23,15 +37,20 @@ function DataCard({ data_name, uploader_name, num_files, type_string, total_size
                     </p>
                     <p class="card-text">Usability&nbsp;<span class="font-weight-bold ">10.0</span> · Size <span class="font-weight-bold ">{total_size}</span></p>
                     <p class="card-text"><b>{num_files}</b>&nbsp;Files · (<b>{type_string}</b>)</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
+                    <div class="d-flex justify-content-between">
+                        <div class="btn-group mr-2" role="group">
                             <button type="button" class="btn btn-sm btn-outline-primary">Details</button>
                             <button type="button" class="btn btn-sm btn-outline-secondary" onClick={handleClickOpen}>Edit</button>
-                            <button type="button" class="btn btn-sm btn-outline-primary" onClick={handleClickOpen}>Download</button>
+                            <button type="button" class="btn btn-sm btn-outline-primary" onClick={handleClickOpen1}>Download</button>
                         </div>
                     </div>
                 </div>
-                <CustomizedDialogs data_name={data_name} handleClickOpen={handleClickOpen} handleClose={handleClose} open={open}/>
+                
+                <DataDownloadPopup data_name={data_name} handleClose={handleClose1} open={open1} />
+                
+
+                
+
             </div>
         </div>
 

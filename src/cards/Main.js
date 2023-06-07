@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Top_Menubar from './Top_Menubar';
 import './wireframe.css';
 import DataCard from './DataCard';
 import SideBar from './SideBar'
+import CreateNEditDatasetPane from './CreateNEditDatasetPane';
 
 
 function Main() {
@@ -44,10 +45,7 @@ function Main() {
                             <SideBar />
                         </div>
                         <div class="col-md-9">
-                            <h1>Datasets</h1>
-                            <p class="lead text-muted">Explore our repository of scientific datasets</p>
-                            <a href="#" class="btn btn-primary m-2"><i class="fa d-inline fa-cloud-upload mr-2"></i>Create Dataset</a>
-                            <a href="#" class="btn btn-secondary m-2"><i class="fa d-inline mr-2 fa-edit"></i>Edit Dataset</a>
+                            <CreateNEditDatasetPane />
                             <div class="input-group mb-3 pt-2 pb-0">
                                 <span class="input-group-text" id="basic-addon1"><i class="fa d-inline fa-search"></i></span>
                                 <input type="email" name="datasrch" class="form-control" placeholder="Search Datasets" />

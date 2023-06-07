@@ -9,6 +9,8 @@ import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
+import { ChangeEvent, useState } from 'react';
+import DatasetCreationPane from './DatasetCreationPane';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -21,6 +23,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 
 function BootstrapDialogTitle(props) {
   const { children, onClose, ...other } = props;
+
 
   return (
     <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
@@ -48,43 +51,53 @@ BootstrapDialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-function CustomizedDialogs({data_name, handleClickOpen, handleClose, open} ) {
+function DatasetCreationPopup({ header, handleClose, open }) {
 
+  const MAX_COUNT = 5;
+  const [uploadedFiles, setUploadedFiles] = useState([])
+  const [fileLimit, setFileLimit] = useState(false);
+
+
+  // Handler for Data File upload
+  const handleUploadFiles = files => {
+    const uploaded = [...uploadedFiles];
+    let limitExceeded = false;
+
+    files.some((file) => {
+      if (uploaded.findIndex((f) => f.name === file.name) === -1) {
+        uploaded.push(file);
+        if (uploaded.length === MAX_COUNT) setFileLimit(true);
+        if (uploaded.length > MAX_COUNT) {
+          alert(`You can only add a maximum of ${MAX_COUNT} files`);
+          setFileLimit(false);
+          limitExceeded = true;
+          return true;
+        }
+      }
+    })
+    if (!limitExceeded)
+      setUploadedFiles(uploaded)
+
+  }
+
+  const handleFileEvent = (e) => {
+    const chosenFiles = Array.prototype.slice.call(e.target.files)
+    handleUploadFiles(chosenFiles);
+  }
+
+
+  // ACTUAL HTML CONTENTS
   return (
-    <div>
-      
-      <BootstrapDialog
-        onClose={handleClose}
-        aria-labelledby="customized-dialog-title"
-        open={open}
-      >
+    <div class="mb-6">
+      <BootstrapDialog fullWidth maxWidth='md' onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-          {data_name}
+          <b>{header}</b>
         </BootstrapDialogTitle>
-        <DialogContent dividers>
-          <Typography gutterBottom>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-            consectetur ac, vestibulum at eros.
-          </Typography>
-          <Typography gutterBottom>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-          </Typography>
-          <Typography gutterBottom>
-            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus
-            magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec
-            ullamcorper nulla non metus auctor fringilla.
-          </Typography>
-        </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={handleClose}>
-            Save changes
-          </Button>
-        </DialogActions>
+        
+        <DatasetCreationPane/>
       </BootstrapDialog>
     </div>
   );
 }
 
-export default CustomizedDialogs;
+export default DatasetCreationPopup;

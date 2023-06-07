@@ -18,7 +18,7 @@ const drawerWidth = 240;
 
 function SideBar(props) {
     const { window } = props;
-    const [mobileOpen, setMobileOpen] = React.useState(true);
+    const [mobileOpen, setMobileOpen] = React.useState(false);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
