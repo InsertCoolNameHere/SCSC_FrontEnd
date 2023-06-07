@@ -16,7 +16,6 @@ function CreateNEditDatasetPane() {
 
     return (
         <>
-            <h1>Datasets</h1>
             <p class="lead text-muted">Explore our repository of scientific datasets</p>
             <button type="button" class="btn btn-primary m-2" onClick={handleClickOpen}><i class="fa d-inline fa-cloud-upload mr-2"></i>Create Dataset</button>
             
