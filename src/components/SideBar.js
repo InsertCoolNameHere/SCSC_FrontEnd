@@ -49,6 +49,10 @@ function SideBar(props) {
                     <ListItemText primary="Profile" />
                     <AccountCircleIcon />
                 </ListItemButton>
+                <ListItemButton component="a" href="external-api">
+                    <ListItemText primary="API" />
+                    <AccountCircleIcon />
+                </ListItemButton>
             </List>
         </div>
     );

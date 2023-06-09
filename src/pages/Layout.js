@@ -1,7 +1,7 @@
 import React from "react";
 import {Outlet} from "react-router-dom";
 import Top_Menubar from '../components/Top_Menubar';
-import SideBar from '../components/SideBar'
+import SideBar from '../components/SideBar';
 
 const Layout = () => {
   return (
