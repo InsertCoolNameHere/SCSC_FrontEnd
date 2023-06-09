@@ -17,17 +17,17 @@ import ProtectedRoute from './auth/protected-route';
 
 
 export default function App() {
-  const { isLoading } = useAuth0();
+  // const { isLoading } = useAuth0();
 
-  if (isLoading) {
-    return <Loading />;
-  }
+  // if (isLoading) {
+  //   return <Loading />;
+  // }
   return (
   
     <Routes>
-        <Route path="/" element={<Layout />}>
+        < Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="datasets" component={<Datasets />} />
+          <Route path="datasets" element={<Datasets />} />
           <Route path="models" element={<Models />} />
           <Route path="visualization" element={<Visualization />} />
           <Route path="profile" element={<Profile />} />
