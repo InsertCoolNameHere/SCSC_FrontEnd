@@ -14,27 +14,28 @@ export default function DataMetadata({ handleInternalChange_pg1 }) {
   
   const tomorrow = dayjs().add(1, 'day');
   const [value, setValue] = React.useState(tomorrow);
+  const [endValue, setEndValue] = React.useState(tomorrow);
 
   return (
     <React.Fragment>
       <Typography variant="h5" gutterBottom>
-        Metadata
+        Dataset Information
       </Typography>
       <Grid container spacing={3} onChange={handleInternalChange_pg1}>
         <Grid item xs={12} sm={6}>
           <TextField required id="dataName" name="dataName" label="Dataset Name" fullWidth autoComplete="given-name" variant="standard" />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        {/*<Grid item xs={12} sm={6}>
           <TextField type="number"  required id="accessLevel" name="accessLevel" label="Access Level" fullWidth variant="standard" />
-        </Grid>
+        </Grid>*/}
         <Grid item xs={12}>
           <TextField required id="dataDescription" name="dataDescription" label="Data Description" fullWidth variant="standard" />
         </Grid>
 
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={12}>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DemoContainer components={['DatePicker']}>
-              <DatePicker disableFuture defaultValue={tomorrow} id="doc" label="Date of Collection" value={value} onChange={(newValue) => {
+              <DatePicker disableFuture defaultValue={tomorrow} id="doc" label="Start Date of Collection" value={value} onChange={(newValue) => {
                 setValue(newValue);
 
                 console.log("DD",newValue);
@@ -42,7 +43,17 @@ export default function DataMetadata({ handleInternalChange_pg1 }) {
                 
                 handleInternalChange_pg1(date_event);
                 //console.log("AA",event, value);
-                }}/>
+              }}/>
+
+              <DatePicker disableFuture defaultValue={tomorrow} id="doc2" label="End Date of Collection" value={endValue} onChange={(newValue) => {
+                setEndValue(newValue);
+
+                console.log("DD",newValue);
+                var date_event = {"target": {"id": "doc2", 'value': newValue}};
+                
+                handleInternalChange_pg1(date_event);
+                //console.log("AA",event, value);
+              }}/>
             </DemoContainer>
           </LocalizationProvider>
         </Grid>

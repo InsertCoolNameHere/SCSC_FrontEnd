@@ -66,12 +66,12 @@ function MyToolTip({id}) {
 
 
 // ACTUAL HANDLING OF THE ACCESS CONTROL TAB
-export default function AccessControl({handleInternalChange_pg3}) {
+export default function AccessControl({handleInternalChange_AC}) {
 
   const [dialogOpen, setDialogOpen] = React.useState(false);
 
   const [groupsList, setGroupsList] = React.useState([]);
-  const [accessNum, setAccessNum] = React.useState(1);
+  const [accessNum, setAccessNum] = React.useState(0);
 
   const [dialogVals, setDialogVals] = useState(accessLevelsDefault);
 
@@ -95,7 +95,7 @@ export default function AccessControl({handleInternalChange_pg3}) {
       }
       
       setGroupsList(prevGroups => ([...groups]));
-      handleInternalChange_pg3(groupsList);
+      handleInternalChange_AC(groupsList);
 
     };
 
@@ -179,6 +179,7 @@ export default function AccessControl({handleInternalChange_pg3}) {
                                { groupName: "ac", "VMetadata": true}];
   const initial_groups_info = [{ groupName: "MYGROUP", "VMetadata": true, "Visualization": true, "Download": true, "Upload": true, "EMetadata": true}];
   const public_groups_info = [{ groupName: "PUBLIC", "VMetadata": true, "Visualization": true, "Download": true, "Upload": false, "EMetadata": false}];
+  const private_groups_info = [{ groupName: "PRIVATE", "VMetadata": true, "Visualization": true, "Download": true, "Upload": true, "EMetadata": true}];
 
 
   const handleChange = (event) => {
@@ -190,13 +191,13 @@ export default function AccessControl({handleInternalChange_pg3}) {
     else if (event.target.value === 2)
       setGroupsList([...initial_groups_info]);
     else
-      setGroupsList([]);
+      setGroupsList([...private_groups_info]);
     
-    handleInternalChange_pg3(groupsList);
+      handleInternalChange_AC(groupsList);
   };
 
   const handleSaveState = (event) => {
-    handleInternalChange_pg3(groupsList);
+    handleInternalChange_AC(groupsList);
   };
 
   const handleRemoveElementOnClick = (num) => {
@@ -217,7 +218,6 @@ export default function AccessControl({handleInternalChange_pg3}) {
             <InputLabel id="demo-simple-select-label">Access Level</InputLabel>
             <Select labelId="demo-simple-select-label" id="groupLevel" value={accessNum} label="groupLevel" onChange={handleChange}>
               <MenuItem value={1}>Owner Only</MenuItem>
-              <MenuItem value={2}>Group</MenuItem>
               <MenuItem value={3}>Select Members</MenuItem>
               <MenuItem value={4}>All Members</MenuItem>
             </Select>
@@ -229,7 +229,7 @@ export default function AccessControl({handleInternalChange_pg3}) {
           //console.log(">> REGENERATING!!")
           // FINAL GROUP WITH THE REMOVE AND ADD BUTTON
           if (groupsList.length === 1) {
-            if (accessNum === 2 || accessNum === 4) {
+            if (accessNum === 1 || accessNum === 4) {
               return (
 
                 <React.Fragment key={i}>

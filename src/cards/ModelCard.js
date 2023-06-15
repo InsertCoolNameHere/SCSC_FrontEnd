@@ -23,6 +23,7 @@ function DataCard({ data_name, uploader_name, num_files, type_string, total_size
         },
     });
 
+
     const [open, setOpen] = React.useState(false);
     const handleClickOpen = () => {
         setOpen(true);
@@ -55,10 +56,10 @@ function DataCard({ data_name, uploader_name, num_files, type_string, total_size
                         <a href="http://google.com" class="link" target="_blank">{uploader_name}</a> ·&nbsp;<span title="Sat Apr 29 2023 21:51:36 GMT-0600 (Mountain Daylight Time)" aria-label="3 days ago">3 days ago</span>
                     </p>
                     <p class="card-text">Usability&nbsp;<span class="font-weight-bold ">10.0</span> · Size <span class="font-weight-bold ">{total_size}</span></p>
-                    <p class="card-text"><b>{num_files}</b>&nbsp;Files · (<b>{type_string}</b>)</p>
+                    
                     <ButtonGroup variant="contained" size="small" aria-label="small button group">
                         <Button variant="outlined" color="secondary" >Details</Button>
-                        <Button variant="outlined" href="visualization">Visualize</Button>
+                        <Button variant="outlined">Visualize</Button>
                     </ButtonGroup>
                     <Box sx={{ m: 1 }} />
                     <ButtonGroup variant="contained" size="small" aria-label="small button group">
