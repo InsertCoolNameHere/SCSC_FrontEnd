@@ -183,6 +183,7 @@ export default function AccessControl({handleInternalChange_AC}) {
 
 
   const handleChange = (event) => {
+    console.log("FFF",event);
     setAccessNum(event.target.value);
     if (event.target.value === 4)
       setGroupsList([...public_groups_info]);

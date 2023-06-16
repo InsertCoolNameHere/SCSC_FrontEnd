@@ -23,7 +23,7 @@ import Collapse from '@mui/material/Collapse';
 import CloseIcon from '@mui/icons-material/Close';
 import Snackbar from '@mui/material/Snackbar';
 
-const steps = ['Data Description', 'File(s) Upload', 'Access Control', 'Source' ];
+const steps = ['Description', 'File(s) Upload', 'Share', 'Review' ];
 
 
 const isEmptyString = (val) => {
