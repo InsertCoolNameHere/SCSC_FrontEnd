@@ -7,6 +7,7 @@ import Storage from '@mui/icons-material/Storage';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuOpen from '@mui/icons-material/MenuOpen';
 import Construction from '@mui/icons-material/Construction';
+import Cable from '@mui/icons-material/Cable';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -51,7 +52,7 @@ function SideBar(props) {
                 </ListItemButton>
                 <ListItemButton component="a" href="external-api">
                     <ListItemText primary="API" />
-                    <AccountCircleIcon />
+                    <Cable />
                 </ListItemButton>
             </List>
         </div>

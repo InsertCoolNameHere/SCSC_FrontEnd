@@ -9,21 +9,21 @@ const ExternalApi = () => {
 
   const callApi = async () => {
     try {
-      const response = await fetch(`${serverUrl}/api/messages/public-message`);
-
+      alert(`${serverUrl}/`)
+      const response = await fetch(`${serverUrl}`);
+      alert(response)
       const responseData = await response.json();
 
       setMessage(responseData.message);
     } catch (error) {
-      setMessage("HERE");
-      // setMessage(error.message);
+      // setMessage("HERE");
+      setMessage(error.message);
     }
   };
 
   const callSecureApi = async () => {
     try {
       const token = await getAccessTokenSilently();
-
       const response = await fetch(
         `${serverUrl}/api/messages/protected-message`,
         {
@@ -44,8 +44,8 @@ const ExternalApi = () => {
   return (
     <div className="container">
       <h1>External API</h1>
-      <p2>${serverUrl}</p2>
-      <p2>${serverUrl}</p2>
+      <p2>{serverUrl}</p2>
+      <p2>{serverUrl}</p2>
       <p>
         Use these buttons to call an external API. The protected API call has an
         access token in its authorization header. The API server will validate

@@ -4,8 +4,22 @@ import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 import Loading from '../components/loading';
 
 const Profile = () => {
-  const { user } = useAuth0();
+  const { user, getAccessTokenSilently } = useAuth0();
   const { name, picture, email } = user;
+
+  const createCustomer = () => {
+    getAccessTokenSilently().then(token => {
+      console.log(token)
+      fetch(process.env.SCSC_API + "/user/manifestStripeCustomer", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }
+      })
+      .then(res => console.log(res.json()))
+      // .then(res => res.json())
+      // .then(json => {console.log(json);});
+    })
+  }
 
   return (
     <div>
@@ -27,6 +41,7 @@ const Profile = () => {
           {JSON.stringify(user, null, 2)}
         </pre>
       </div>
+      <button onClick={createCustomer}>Create Customer</button>
     </div>
   );
 };
