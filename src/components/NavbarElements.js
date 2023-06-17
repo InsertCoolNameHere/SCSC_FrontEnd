@@ -4,10 +4,10 @@ import styled from 'styled-components';
 
 export const Nav = styled.nav`
 background: #465572;
-height: 25px;
-// display: flex;
+height: 40px;
+display: flex;
 justify-content: space-between;
-// padding: 0.2rem calc((100vw - 1000px) / 2);
+padding: 0.2rem calc((100vw - 1000px) / 2);
 z-index: 12;
 /* Third Nav */
 /* justify-content: flex-start; */
@@ -20,7 +20,9 @@ align-items: center;
 text-decoration: none;
 padding: 0 1rem;
 height: 100%;
+font-size: 1.3rem;
 cursor: pointer;
+font-family: "Courier";
 &.active {
 	color: #00000;
 }
@@ -69,7 +71,7 @@ width: 100vw; */
 export const NavBtnLink = styled(Link)`
 border-radius: 4px;
 background: #000000;
-padding: 10px 22px;
+// padding: 10px 22px;
 color: #00000;
 outline: none;
 border: none;

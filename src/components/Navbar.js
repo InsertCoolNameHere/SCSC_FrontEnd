@@ -20,6 +20,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import InfoIcon from '@mui/icons-material/Info';
 import PublicIcon from '@mui/icons-material/Public';
+import '../index.css';
 
 const drawerWidth = 240;
   
@@ -97,7 +98,7 @@ function Navbar(props) {
         </NavLink>
         <NavLink to='/about'  className={({ isActive }) => (isActive ? 'active font-bold' : 'inactive')}>
         <InfoIcon />
-          About Us
+          About
         </NavLink>
         </NavMenu>
       </Nav>

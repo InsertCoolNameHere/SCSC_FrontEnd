@@ -11,10 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
-.align-right {
+/* .align-right {
   display: flex !important;
   justify-content: right !important;
-}
+} */
 
 h1{
   /* height: 400px;
@@ -24,8 +24,4 @@ h1{
   flex-direction: column;
   justify-content: center; */
   text-align: center;
-}
-
-appBar{
-  background: '#2E3B55'
 }
