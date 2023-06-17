@@ -1,7 +1,7 @@
 import React from 'react';
 import DatasetCreationPopup from "./data_upload/DatasetCreationPopup";
 
-function CreateNEditDatasetPane() {
+function CreateNEditModelsPane() {
 
     const [open, setOpen] = React.useState(false);
     const handleClickOpen = () => {
@@ -16,10 +16,10 @@ function CreateNEditDatasetPane() {
 
     return (
         <>
-            <p class="lead text-muted">Explore our repository of scientific datasets</p>
-            <button type="button" class="btn btn-primary m-2" onClick={handleClickOpen}><i class="fa d-inline fa-cloud-upload mr-2"></i>Create Dataset</button>
+            <p class="lead text-muted">Explore our repository of scientific and AI models.</p>
+            <button type="button" class="btn btn-primary m-2" onClick={handleClickOpen}><i class="fa d-inline fa-cloud-upload mr-2"></i>Add Model</button>
             
-            <button type="button" class="btn btn-secondary m-2"><i class="fa d-inline mr-2 fa-edit"></i>Edit Dataset</button>
+            <button type="button" class="btn btn-secondary m-2"><i class="fa d-inline mr-2 fa-edit"></i>Edit Model</button>
 
             
             <DatasetCreationPopup header="SCSC" handleClose={handleClose} open={open} />
@@ -27,4 +27,4 @@ function CreateNEditDatasetPane() {
     );
 }
 
-export default CreateNEditDatasetPane;
+export default CreateNEditModelsPane;

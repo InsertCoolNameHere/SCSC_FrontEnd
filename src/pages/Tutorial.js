@@ -1,12 +1,12 @@
 import React from 'react';
 import '../index.css';
 
-function Home() {
+function Tutorial() {
     return (
             <div>
-                <h1>Home</h1>    
+                <h1>Tutorial</h1>    
             </div>
     );
 }
 
-export default Home;
+export default Tutorial;

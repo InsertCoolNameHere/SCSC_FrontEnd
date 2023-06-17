@@ -23,7 +23,7 @@ import Collapse from '@mui/material/Collapse';
 import CloseIcon from '@mui/icons-material/Close';
 import Snackbar from '@mui/material/Snackbar';
 
-const steps = ['Data Description', 'Source', 'Access Control', 'File(s) Upload'];
+const steps = ['Description', 'File(s) Upload', 'Share', 'Review' ];
 
 
 const isEmptyString = (val) => {
@@ -33,14 +33,13 @@ const isEmptyString = (val) => {
   return false;
 } 
 
-const validate_pg1 = (info) => {
-  const required_fields = ['accessLevel', 'dataDescription', 'dataName', 'doc'];
+const validate_dataset_desc = (info) => {
+  const required_fields = ['dataDescription', 'dataName', 'doc', 'doc2'];
 
   let isValid = true;
   for (var i = 0; i < required_fields.length; i++) {
     var fd = required_fields[i];
     if (info[fd] === undefined || isEmptyString(info[fd])) {
-      //console.log(">",fd,info[fd]);
       isValid = false;
       break;
     }
@@ -50,29 +49,25 @@ const validate_pg1 = (info) => {
 }
 
 
-const validate_pg2 = (info) => {
-  const required_fields = ['group_access', 'uploaderOrg'];
+const validate_upload_files = (info) => {
+  const required_fields = ['valsuccess'];
 
   let isValid = true;
   for (var i = 0; i < required_fields.length; i++) {
     var fd = required_fields[i];
-    if (info[fd] === undefined || isEmptyString(info[fd])) {
+    if (info[fd] === undefined) {
       //console.log(">",fd,info[fd]);
       isValid = false;
       break;
     }
   }
-
   return isValid;
 }
 
 
-const validate_pg3 = (info) => {
-  return true;
-}
 
-const validate_pg4 = (info) => {
-  const required_fields = ['accessLevel', 'dataDescription', 'dataName', 'doc'];
+const validate_AccessControl = (info) => {
+  const required_fields = ['groupslist'];
 
   let isValid = true;
   for (var i = 0; i < required_fields.length; i++) {
@@ -87,6 +82,12 @@ const validate_pg4 = (info) => {
   return isValid;
 }
 
+const validate_pg4 = (info) => {
+
+  let isValid = true;
+  return isValid;
+}
+
 const defaultTheme = createTheme();
 
 export default function DatasetCreationPane() {
@@ -94,8 +95,6 @@ export default function DatasetCreationPane() {
   const [open, setOpen] = React.useState(false);
   const [alertMsg, setAlertMsg] = React.useState("No Error");
 
-
-  const pageids = ['page1', 'page2', 'page3', 'page4'];
   const [formData, setFormData] = useState([{}, {}, {}, {}]);
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -104,7 +103,7 @@ export default function DatasetCreationPane() {
     //console.log("D1",event);
     var this_page_info = formData[0];
 
-    if (event.target.id === "doc") {
+    if (event.target.id === "doc" || event.target.id === "doc2") {
       var target_id = event.target.id;
       var date_value = event.target.value;
       this_page_info[target_id] = date_value.$D + '-' + (date_value.$M + 1) + '-' + date_value.$y;
@@ -114,16 +113,34 @@ export default function DatasetCreationPane() {
       var target_id = event.target.id;
 
       this_page_info[target_id] = target.value;
-      /* if ("dataName" === target_id) {
-        this_page_info['groupName'] = target.value;
-      } else if ("accessLevel" === target_id) {
-        this_page_info['accessLevel'] = target.value;
-      } else if ("dataDescription" === target_id) {
-        this_page_info['dataDescription'] = target.value;
-      } */
     }
     console.log(formData);
   };
+
+  const handleInternalChange_upload = (event) => {
+    //console.log("D1",event);
+    var this_page_info = formData[1];
+
+    if (event.target.id === "valsuccess") {
+      var target_id = event.target.id;
+      var val = event.target.value;
+      this_page_info[target_id] = val;
+
+    } 
+    console.log(formData);
+  };
+
+  const handleInternalChange_AC = (event) => {
+    console.log("D3",event);
+    var this_page_info = formData[2];
+
+    if (event.length > 0) {
+      this_page_info['groupslist'] = event;
+    }
+
+    console.log(formData);
+  };
+
 
   const handleInternalChange_pg2 = (event) => {
     //console.log("D1",event);
@@ -139,52 +156,26 @@ export default function DatasetCreationPane() {
       var target_id = event.target.id;
 
       this_page_info[target_id] = target.value;
-      /* if ("dataName" === target_id) {
-        this_page_info['groupName'] = target.value;
-      } else if ("accessLevel" === target_id) {
-        this_page_info['accessLevel'] = target.value;
-      } else if ("dataDescription" === target_id) {
-        this_page_info['dataDescription'] = target.value;
-      } */
     }
     console.log(formData);
   };
 
-  const handleInternalChange_pg3 = (event) => {
-    console.log("D3",event);
-    /*var this_page_info = formData[1];
-
-    if (event.target.id === "doc") {
-      var target_id = event.target.id;
-      var date_value = event.target.value;
-      this_page_info[target_id] = date_value.$D + '-' + (date_value.$M + 1) + '-' + date_value.$y;
-
-    } else {
-      var target = event.target;
-      var target_id = event.target.id;
-
-      this_page_info[target_id] = target.value;
-      
-    }
-    console.log(formData);*/
-  };
 
   function getStepContent(step) {
     switch (step) {
       case 0:
         return <DataMetadata handleInternalChange_pg1={handleInternalChange_pg1} />;
       case 1:
-        return <UploaderInfo handleInternalChange_pg2={handleInternalChange_pg2}/>;
+        //console.log("YO",activeStep, formData[activeStep-1]);
+        return <FilesUpload handleInternalChange_upload={handleInternalChange_upload} dataName={formData[activeStep-1]['dataName']}/>;
       case 2:
-        return <AccessControl handleInternalChange_pg3={handleInternalChange_pg3}/>;
+        return <AccessControl handleInternalChange_AC={handleInternalChange_AC}/>;
       case 3:
-        return <FilesUpload />;
+        return <UploaderInfo handleInternalChange_pg2={handleInternalChange_pg2} dataName={formData[activeStep-3]['dataName']}/>;
       default:
         throw new Error('Unknown step');
     }
   }
-
-
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
@@ -195,14 +186,15 @@ export default function DatasetCreationPane() {
   };
 
 
+  // CLICKING OF THE NEXT BUTTON AT EVERY PAGE
   const handleNext = () => {
     var retval = false;
     if (activeStep == 0) {
-      retval = validate_pg1(formData[activeStep]);
+      retval = validate_dataset_desc(formData[activeStep]);
     } else if (activeStep == 1) {
-      retval = validate_pg2(formData[activeStep]);
+      retval = validate_upload_files(formData[activeStep]);
     } else if (activeStep == 2) {
-      retval = validate_pg3(formData[activeStep]);
+      retval = validate_AccessControl(formData[activeStep]);
     } else if (activeStep == 3) {
       retval = validate_pg4(formData[activeStep]);
     }
@@ -242,7 +234,7 @@ export default function DatasetCreationPane() {
       <Container component="main" maxWidth="md" sx={{ mb: 4 }}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
           <Typography component="h1" variant="h4" align="center">
-            Dataset Info
+            Dataset Registration
           </Typography>
 
           <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>

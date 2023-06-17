@@ -2,6 +2,7 @@ import React from 'react';
 
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 import Loading from '../components/loading';
+import '../index.css';
 
 const Profile = () => {
   const { user, getAccessTokenSilently } = useAuth0();

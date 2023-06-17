@@ -20,7 +20,7 @@ function InfoCard({ago, data_info, uploader_name, user_score}) {
           {uploader_name}
         </Typography>
         <Typography variant="body2">
-          Rating: <b>{user_score}</b>
+          Usability: <b>{user_score}</b>
         </Typography>
       </CardContent>
       <CardActions>

@@ -7,7 +7,12 @@ import Home from "./pages/Home";
 import Datasets from "./pages/Datasets";
 import Models from "./pages/Models";
 import Visualization from "./pages/Visualization";
+import Analysis from "./pages/Analysis";
+import About from "./pages/About";
+import Help from "./pages/Help";
 import Profile from "./pages/Profile";
+import SCSC from "./pages/SCSC";
+import Tutorial from "./pages/Tutorial";
 import ExternalApi from "./pages/ExternalApi";
 import Auth0ProviderWithHistory from './auth/auth0-provider-with-history';
 import './cards/wireframe.css';
@@ -27,11 +32,16 @@ export default function App() {
     <Routes>
         < Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="help" element={<Help />} />
           <Route path="datasets" element={<Datasets />} />
           <Route path="models" element={<Models />} />
           <Route path="visualization" element={<Visualization />} />
+          <Route path="analysis" element={<Analysis />} />
           <Route path="profile" element={<Profile />} />
-          <Route path="external-api" element={<ExternalApi />} />
+          <Route path="api" element={<ExternalApi />} />
+          <Route path="scsc" element={<SCSC />} />
+          <Route path="tutorial" element={<Tutorial />} />
           {/* <Route path="*" element={<NoPage />} /> */}
         </Route>
     </Routes>

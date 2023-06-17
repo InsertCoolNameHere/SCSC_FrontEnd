@@ -7,8 +7,9 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import React from 'react';
-import './scsc_style.css'
 import AuthenticationButton from './authentication-button';
+import Navbar from "./Navbar"
+import '../index.css';
 
 const options = [
     'Admin Login',
@@ -31,7 +32,7 @@ function Top_Menubar() {
     return (
         <>
 
-            <AppBar>
+            <AppBar style={{ background: '#2E3B55' }}>
                 <Toolbar>
                     <Typography variant="h4" color="inherit" component="div">
                         <b>SCSC</b>
@@ -63,7 +64,7 @@ function Top_Menubar() {
 
 
                 </Toolbar>
-
+                <Navbar />
             </AppBar>
 
         </>
