@@ -9,6 +9,7 @@ import MenuItem from '@mui/material/MenuItem';
 import React from 'react';
 import AuthenticationButton from './authentication-button';
 import Navbar from "./Navbar"
+import { Link } from 'react-router-dom';
 import '../index.css';
 
 const options = [
@@ -34,9 +35,9 @@ function Top_Menubar() {
 
             <AppBar style={{ background: '#2E3B55' }}>
                 <Toolbar>
-                    <Typography variant="h4" color="inherit" component="div">
-                        <b>SCSC</b>
-                    </Typography>
+                    <Link to="/scsc" rel="noreferrer">
+                        <img src={require("../imgs/logo_low_res.png")} width="23%" height="auto" />
+                    </Link>
                     <IconButton edge="start" aria-label="more" id="long-button" aria-controls="menu-appbar" aria-haspopup="true" onClick={handleClick} sx={{ marginLeft: "auto" }} >
                         <AccountCircleIcon sx={{ color: "white" }} />
                     </IconButton>
