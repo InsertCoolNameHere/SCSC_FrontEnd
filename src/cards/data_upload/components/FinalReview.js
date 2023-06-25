@@ -9,13 +9,13 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export default function UploaderInfo({handleInternalChange_pg2, dataName}) {
+export default function FinalReview({handleInternalChange_review, dataName}) {
   const [access, setAccess] = React.useState('');
 
   const handleChange = (event) => {
     setAccess(event.target.value);
     event.target.id = "group_access";
-    handleInternalChange_pg2(event);
+    handleInternalChange_review(event);
   };
 
   return (
@@ -23,7 +23,7 @@ export default function UploaderInfo({handleInternalChange_pg2, dataName}) {
       <Typography variant="h5" gutterBottom>
         Review
       </Typography>
-      <Grid container spacing={3} onChange={handleInternalChange_pg2}>
+      <Grid container spacing={3} onChange={handleInternalChange_review}>
         <Grid item xs={12} md={6}>
           <InputLabel focused id="spatial_label"><b>Name:</b> {dataName}</InputLabel>
         </Grid>

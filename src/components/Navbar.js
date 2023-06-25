@@ -68,7 +68,7 @@ function Navbar(props) {
         
         
           <Drawer/>
-          <NavLink onClick={handleDrawerToggle} activeStyle>
+          <NavLink onClick={handleDrawerToggle}>
           <MenuOpen />
         Menu
         </NavLink>

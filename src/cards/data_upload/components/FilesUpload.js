@@ -32,6 +32,8 @@ export default function FilesUpload({dataName, handleInternalChange_upload}) {
 
   const handleHasTime = (event) => {
     setHasTime(event.target.value);
+    var time_event = {"target": {"id": "temporal_field", 'value': event.target.value}};
+    handleInternalChange_upload(time_event);
   };
 
 
@@ -40,8 +42,11 @@ export default function FilesUpload({dataName, handleInternalChange_upload}) {
 
   const handleSpatialChange = (event) => {
     setSpatial(event.target.value);
+    var space_event = {"target": {"id": "spatial_field", 'value': event.target.value}};
+    handleInternalChange_upload(space_event);
   };
 
+  /* EXTRACTION OF METADATA FROM DATA FILES....PASSED ON TO Datasetreview */
   const handleFileRead = (e) => {
     const content = reader.result;
     
@@ -83,6 +88,10 @@ export default function FilesUpload({dataName, handleInternalChange_upload}) {
       reader.readAsText(files[0]);
 
       setValidUpload(true);
+
+      console.log("CALLING HANDLER");
+      var files_event = {"target": {"id": "files", 'value': files}};
+      handleInternalChange_upload(files_event);
     }
 
     console.log(uploadedFiles);

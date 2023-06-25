@@ -31,7 +31,7 @@ function EnhancedTableToolbar(props) {
         <Toolbar sx={{ pl: { sm: 2 }, pr: { xs: 1, sm: 1 }, ...(numSelected > 0 && { bgcolor: (theme) => alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity), }), }}>
 
             <Typography sx={{ flex: '1 1 100%' }} variant="h5" id="tableTitle" component="div" >
-                Attribute Metadata
+                Dataset Summary
             </Typography>
 
             <Tooltip title="Filter list">
@@ -99,7 +99,7 @@ export default function DataSummaryTable({ rows }) {
                                         hover
                                         
                                         tabIndex={-1}
-                                        key={row.name}
+                                        key={row.name+'_summary'}
                                         sx={{ cursor: 'pointer' }}
                                     >
                                         {(row.Count) && (<TableCell key={row.name+'$'+row.count} align="center" sx={{ color: '#055089' }}><Typography variant="h5"><b>Count: {row.Count}</b></Typography></TableCell>)}
@@ -134,6 +134,7 @@ export default function DataSummaryTable({ rows }) {
 
                 <Grid item xs={12} md={12} align='center'>
                     <Button variant="outlined" color="secondary" endIcon={<PublishedWithChangesIcon />} >Click 'Next' to Proceed</Button>
+                    <Box sx={{ m: 2 }} />
                 </Grid>
 
             </Paper>

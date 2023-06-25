@@ -13,8 +13,8 @@ import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 export default function DataMetadata({ handleInternalChange_pg1 }) {
   
   const tomorrow = dayjs().add(1, 'day');
-  const [value, setValue] = React.useState(tomorrow);
-  const [endValue, setEndValue] = React.useState(tomorrow);
+  const [value, setValue] = React.useState(null);
+  const [endValue, setEndValue] = React.useState(null);
 
   return (
     <React.Fragment>
@@ -25,9 +25,6 @@ export default function DataMetadata({ handleInternalChange_pg1 }) {
         <Grid item xs={12} sm={6}>
           <TextField required id="dataName" name="dataName" label="Dataset Name" fullWidth autoComplete="given-name" variant="standard" />
         </Grid>
-        {/*<Grid item xs={12} sm={6}>
-          <TextField type="number"  required id="accessLevel" name="accessLevel" label="Access Level" fullWidth variant="standard" />
-        </Grid>*/}
         <Grid item xs={12}>
           <TextField required id="dataDescription" name="dataDescription" label="Data Description" fullWidth variant="standard" />
         </Grid>
@@ -35,7 +32,7 @@ export default function DataMetadata({ handleInternalChange_pg1 }) {
         <Grid item xs={12} sm={12}>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DemoContainer components={['DatePicker']}>
-              <DatePicker disableFuture defaultValue={tomorrow} id="doc" label="Start Date of Collection" value={value} onChange={(newValue) => {
+              <DatePicker inputFormat="MM/DD/YYYY" disableFuture id="doc" label="Start Date of Collection" value={value} onChange={(newValue) => {
                 setValue(newValue);
 
                 console.log("DD",newValue);
@@ -45,7 +42,7 @@ export default function DataMetadata({ handleInternalChange_pg1 }) {
                 //console.log("AA",event, value);
               }}/>
 
-              <DatePicker disableFuture defaultValue={tomorrow} id="doc2" label="End Date of Collection" value={endValue} onChange={(newValue) => {
+              <DatePicker inputFormat="MM/DD/YYYY" disableFuture id="doc2" label="End Date of Collection" value={endValue} onChange={(newValue) => {
                 setEndValue(newValue);
 
                 console.log("DD",newValue);
@@ -59,6 +56,9 @@ export default function DataMetadata({ handleInternalChange_pg1 }) {
         </Grid>
         <Grid item xs={12}>
           <TextField id="dataSources" name="dataSources" label="DOI of sources (comma separated)" fullWidth variant="standard" />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField id="dataPublications" name="dataPublications" label="DOI of publication(s) (comma separated, if any)" fullWidth variant="standard" />
         </Grid>
       </Grid>
     </React.Fragment>

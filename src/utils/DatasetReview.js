@@ -75,7 +75,7 @@ const time_field = [
 
 export default function DatasetReview({handleInternalChange_upload, metadata, imagefile, dataName, hasTime, spatial, rowData}) {
 
-    console.log("YOYOYO", hasTime, spatial);
+    //console.log("TAGS CHECK:", hasTime, spatial);
 
     let headCells;
     if (spatial === 'latlon') {

@@ -108,6 +108,7 @@ export default function EnhancedTable({ handleInternalChange_upload, rows, headC
     const onLatRadioClick = (event) => {
         if (event.target.value) {
             setLatField(event.target.value);
+            setFipsField(null);
         }
     };
 
@@ -123,6 +124,7 @@ export default function EnhancedTable({ handleInternalChange_upload, rows, headC
     const onLonRadioClick = (event) => {
         if (event.target.value) {
             setLonField(event.target.value);
+            setFipsField(null);
         }
     };
 
@@ -138,6 +140,8 @@ export default function EnhancedTable({ handleInternalChange_upload, rows, headC
     const onFipsRadioClick = (event) => {
         if (event.target.value) {
             setFipsField(event.target.value);
+            setLatField(null);
+            setLonField(null);
         }
     };
 
@@ -160,14 +164,14 @@ export default function EnhancedTable({ handleInternalChange_upload, rows, headC
     
     // KEEP TRACK OF UPDATES TO THE METADATA TABLE ****************************************************************************************************************
     const handleMetadataUpdate = (event) => {
-        //console.log("D1",event.target.id, event.target.value);
+        console.log("D1",event.target.id,"D2", event.target.value);
         var tokens = event.target.id.split("$");
         var attribute_name = tokens[0];
         var column_name = tokens[1];
         var data_type = event.target.value;
 
         console.log(attribute_name, Object.keys(metadataState))
-        if (column_name === 'latitude' || column_name === 'longitude' || column_name === 'temporal' ) {
+        if (column_name === 'fips' || column_name === 'latitude' || column_name === 'longitude' || column_name === 'temporal' ) {
             var allkeys = Object.keys(metadataState);
             for(var key_indx in allkeys) {
                 var key = allkeys[key_indx];
@@ -183,24 +187,6 @@ export default function EnhancedTable({ handleInternalChange_upload, rows, headC
             metadataState[attribute_name][column_name] = data_type;
 
         setMetadataState(metadataState);
-
-        //console.log("m1",metadataState);
-
-        
-        /*var this_page_info = formData[0];
-    
-        if (event.target.id === "doc" || event.target.id === "doc2") {
-          var target_id = event.target.id;
-          var date_value = event.target.value;
-          this_page_info[target_id] = date_value.$D + '-' + (date_value.$M + 1) + '-' + date_value.$y;
-    
-        } else {
-          var target = event.target;
-          var target_id = event.target.id;
-    
-          this_page_info[target_id] = target.value;
-        }
-        console.log(formData);*/
       };
 
 
@@ -212,13 +198,15 @@ export default function EnhancedTable({ handleInternalChange_upload, rows, headC
     const validateData = () => {
         var isValid = true;
         var errormsg = "";
+
+        // Checking of all required radio buttons have been picked
         if ('latlon' === spatial) {
             if (latField === null || lonField === null) {
                 errormsg += "Lat/Lon Field canot be null;";
                 isValid = false;
             }
         } else {
-            if (latField === null) {
+            if (fipsField === null) {
                 errormsg += "Spatial Field canot be null;";
                 isValid = false;
             }
@@ -231,16 +219,30 @@ export default function EnhancedTable({ handleInternalChange_upload, rows, headC
             }
         }
 
+        // Ensuring that duplicate radio buttons have not been selected
         if (isValid) {
+            console.log("HASNONE", hasTime);
             if (hasTime != 'none') {
-                if (latField === lonField || latField === timeField || timeField === lonField) {
-                    errormsg += "Selected Spatial / Temporal Fields must be distinct;";
-                    isValid = false;
+                if ('latlon' === spatial) {
+                    if (latField === lonField || latField === timeField || timeField === lonField) {
+                        errormsg += "Selected Spatial / Temporal Fields must be distinct;";
+                        isValid = false;
+                    }
+
+                } else {
+                    if (fipsField === timeField) {
+                        errormsg += "Selected Spatial / Temporal Fields must be distinct;";
+                        isValid = false;
+                    }
                 }
+                
             } else {
-                if (latField === lonField) {
-                    errormsg += "Selected Spatial Fields must be distinct;";
-                    isValid = false;
+                if ('latlon' === spatial) {
+                    if (latField === lonField) {
+                        errormsg += "Selected Spatial Fields must be distinct;";
+                        isValid = false;
+                    }
+
                 }
             }
         }
@@ -296,22 +298,11 @@ export default function EnhancedTable({ handleInternalChange_upload, rows, headC
         
         console.log("SUMMARIES",summary_temp);
 
-        var type_change_event = {"target": {"id": 'valsuccess', 'value': true}};
+        var type_change_event = {"target": {"id": 'valsuccess', 'value': true, 'summary':summary_temp}};
         handleInternalChange_upload(type_change_event);
         setShowSummary(true);
         setSummaryData(summary_temp);
     };
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -423,7 +414,7 @@ export default function EnhancedTable({ handleInternalChange_upload, rows, headC
 
                                         {(spatial != 'latlon') && (
                                             <TableCell align="center">
-                                                <FormControlLabel id={row.name+'$fips'} value={row.name} control={<Radio checked={amITheFips(row.name)} />} label="" onChange={onFipsRadioClick} />
+                                                <FormControlLabel value={row.name} control={<Radio id={row.name+'$fips'} checked={amITheFips(row.name)} />} label="" onChange={onFipsRadioClick} />
                                             </TableCell>
 
                                         )}
@@ -472,6 +463,7 @@ export default function EnhancedTable({ handleInternalChange_upload, rows, headC
 
                 <Grid item xs={12} md={12} align='center'>
                     <Button variant="outlined" endIcon={<PublishedWithChangesIcon />} onClick={validateData}>Validate Your Dataset</Button>
+                    <Box sx={{ m: 2 }} />
                 </Grid>
                 
                 {(showSummary) && (

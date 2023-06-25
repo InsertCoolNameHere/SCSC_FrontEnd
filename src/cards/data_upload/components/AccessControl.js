@@ -71,7 +71,7 @@ export default function AccessControl({handleInternalChange_AC}) {
   const [dialogOpen, setDialogOpen] = React.useState(false);
 
   const [groupsList, setGroupsList] = React.useState([]);
-  const [accessNum, setAccessNum] = React.useState(0);
+  const [accessNum, setAccessNum] = React.useState(1);
 
   const [dialogVals, setDialogVals] = useState(accessLevelsDefault);
 
@@ -185,16 +185,18 @@ export default function AccessControl({handleInternalChange_AC}) {
   const handleChange = (event) => {
     console.log("FFF",event);
     setAccessNum(event.target.value);
+    var current_groups = [];
     if (event.target.value === 4)
-      setGroupsList([...public_groups_info]);
+      current_groups = public_groups_info;
     else if (event.target.value === 3)
-      setGroupsList([...initial_select_members_info]);
+      current_groups = initial_select_members_info;
     else if (event.target.value === 2)
-      setGroupsList([...initial_groups_info]);
-    else
-      setGroupsList([...private_groups_info]);
+      current_groups = initial_groups_info;
+    else if (event.target.value === 1)
+      current_groups = private_groups_info;
     
-      handleInternalChange_AC(groupsList);
+    setGroupsList(prev=>([...current_groups]));
+    handleInternalChange_AC(current_groups);
   };
 
   const handleSaveState = (event) => {
@@ -210,7 +212,7 @@ export default function AccessControl({handleInternalChange_AC}) {
   return (
     <React.Fragment>
       <Typography variant="h5" gutterBottom>
-        Access Information
+        Access Permissions
       </Typography>
       <Grid container spacing={3}>
 
