@@ -1,0 +1,119 @@
+.Window {
+    position: fixed;
+    width: 40vw;
+    height: 30vw;
+    max-height: 30vw;
+    z-index: 5000;
+    opacity: 0.8;
+}
+
+.HeaderDiv {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.Handle{
+    margin-inline-end: auto !important;
+}
+
+.ChartContainer {
+    display: flex !important;
+    height: 500px;
+}
+
+.ChartingControls {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    position: absolute;
+    text-align: center;
+    margin-right: 10px;
+    top: 20%;
+    right: 0%;
+    height: fit-content;
+    width: fit-content;
+    min-width: 20vw;
+    z-index: 1000;
+    overflow: auto;
+}
+
+.XAxis {
+    width: 90%;
+}
+
+.XAxisFormControl {
+    width: 100%;
+    margin-top: 20px !important;
+}
+
+.AxisControls {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 15px;
+}
+
+.AxisList {
+    width: 100%;
+}
+
+.AxisControlsTypography {
+    margin-inline-end: auto !important;
+}
+.YAxis {
+    width: 90%;
+}
+
+.YAxisFormControl {
+    width: 100%;
+    margin-top: 20px !important;
+}
+
+.Variables {    
+    width: fit-content;
+    min-width: 90%;
+    margin-top: 10px;
+    display: flex;
+    flex-flow: column;
+}
+
+.IconComparisons {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-flow: column;
+}
+
+.VariablesText {
+    font-size: large !important;
+    color: #1976d2;
+}
+
+.VariableFormControl {
+    width: 100%;
+}
+
+
+.VariableIconButton {
+    border-radius: 50px !important;
+}
+
+.IndividualVariable {
+    display: flex;
+}
+
+.IndividualIcon{
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.ControlsTextField {
+    width: 50px;
+    right: 0%;
+}
+
+.DomainTypography {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+}

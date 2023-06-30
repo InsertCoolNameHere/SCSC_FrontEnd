@@ -115,10 +115,10 @@ export default function DatasetCreationPane() {
   const [open, setOpen] = React.useState(false);
   const [alertMsg, setAlertMsg] = React.useState("No Error");
   const [rsp, setRsp] = React.useState({});
-  //const { name, picture, email } = UserProfileExtractor();
+  const { name, picture, email } = UserProfileExtractor();
   const username = "dummy";
 
-  console.log("USERXXX", username);
+  console.log("USERXXX", name);
 
   const [formData, setFormData] = useState([{}, {"spatial_field":'latlon', "temporal_field":'none'}, 
   {'groupslist': [{ groupName: "PRIVATE", "VMetadata": true, "Visualization": true, "Download": true, "Upload": true, "EMetadata": true}]}, {}]);

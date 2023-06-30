@@ -75,7 +75,7 @@ function Visualization() {
             <div>
                 <h1>Visualization</h1>    
                 <UsMap
-                    layers={[Deck.state.iconLayer]}
+                    layers={[Deck.state.shapeLayer]}
                     Deck={Deck}
                     setZoomTo={setZoomTo}
                 />

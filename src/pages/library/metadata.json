@@ -1,0 +1,162 @@
+{
+	"MMM_FFAR_Soil_Data_Sample" : {
+		"Dataset_Description" : {
+			"field_long_name" : "FFAR Soil Carbon Dataset",
+			"Description" : "The overarching goal of the soils work on the 3M project is to understand how grazing management impacts soil health generally, and soil organic carbon (SOC) changes specifically. To this end, the Soil Innovation Lab (SoIL) at Colorado State University (PI: M. Francesca Cotrufo) is collecting soil samples from both intensive hubs and corresponding producer farms and ranches."
+		},
+		"Site" : {
+			"field_long_name" : "Major Geolocation",
+			"Description" : "The sites are mainly located at Michigan, Oklahoma and Wyoming."
+		},
+		"Block" : {
+			"field_long_name" : "Major Area in each site",
+			"Description" : "Several blocks in Oklahoma(6), Michigan(3) and Wyoming(5)"
+		},
+		"Plot" : {
+			"field_long_name" : "Sub location in each plot",
+			"Description" : "Each Block contains two plots."
+		},
+		"Triangle" : {
+			"field_long_name" : "Georeferenced Triangle",
+			"Description" : "There are 12 randomly placed georeferenced Triangles per plot."
+		},
+		"Core" : {
+			"field_long_name" : "Each Vertex of Triangle",
+			"Description" : "A Core is placed in each vertex of the Triangle"
+		},
+		"Depth" : {
+			"field_long_name" : "Soil Depth in Core",
+			"Description" : "There are 4 different depths in each core and those are in depth 0-15cm, 15-30cm, 30-50cm and 50-100cm."
+		},
+		"Sample #" : {
+			"field_long_name" : "Unique Sample ID",
+			"Description" : "Each sample has a unique sample ID"
+		},
+		"epoch_time" : {
+			"field_long_name" : "Time Stamp",
+			"Description" : "The date and time is recorded at the time of experiment. "
+		},
+		"BD" : {
+			"field_long_name" : "bulk density ",
+			"Description" : "Bulk Density(BD) is a measure of the total amount of soil in a given area; the dry weight of soil divided by soil volume."
+		},
+		"TC|TN" : {
+			"field_long_name" : "total carbon/total nitrogen concentration",
+			"Description" : "The concentration of carbon and nitrogen (%, g/g) measured in soil samples using an elemental analyzer"
+		},
+		"TOC|SOC" : {
+			"field_long_name" : "carbon stock",
+			"Description" : "Total stock (amount) of soil carbon in a given area; the product of carbon concentration and bulk density"
+		},
+		"N" : {
+			"field_long_name" : "nitrogen stock ",
+			"Description" : "Total stock (amount) of soil nitrogen in a given area; the product of nitrogen concentration and bulk density "
+		},
+		"RB" : {
+			"field_long_name" : "root biomass",
+			"Description" : "Quantification of total root weight in a given area; the average of roots picked and weighed from soil samples "
+		},
+		"HA" : {
+			"field_long_name" : "hectare",
+			"Description" : "Hectare; 2.471 acres or 10,000 square meters"
+		},
+		"CM" : {
+			"field_long_name" : "centimeter",
+			"Description" : "Centimeter"
+		},
+		"MG" : {
+			"field_long_name" : "Megagram",
+			"Description" : "Megagram; 1,000,000 grams"
+		},
+		"C:N" : {
+			"field_long_name" : "carbon:nitrogen ratio",
+			"Description" : "Carbon to nitrogen ratio; measured in soils "
+		},
+		"IC" : {
+			"field_long_name" : "inorganic carbon",
+			"Description" : "Quantified to subtract from total carbon (TC) to calculate total organic carbon (TOC); not usually a variable of interest from management changes "
+		},
+		"PH" : {
+			"field_long_name" : "PH",
+			"Description" : "Soil pH is defined as the negative logarithm of the hydrogen ion concentration; pH impacts several important soil functions "
+		},
+		"CEC" : {
+			"field_long_name" : "cation exchange capacity ",
+			"Description" : "Cation exchange capacity (CEC) is a measure of the soil’s ability to hold positively charged ions. It is a very important soil property influencing soil structure stability, nutrient availability, soil pH and the soil’s reaction to fertilisers and other ameliorants (Hazleton and Murphy 2007); measured in millequivalents per 100 grams of soil (meq/100g)"
+		},
+		"Texture" : {
+			"field_long_name" : "Texure",
+			"Description" : "The proportion of sand, silt, and clay of soil. Will be measured as a percentage (%) of each of those components, which determines texture (i.e., sandy loam, clay, etc). "
+		},
+		"WSA" : {
+			"field_long_name" : "water stable aggregates/aggregate stability ",
+			"Description" : "A measure of soil structure / the abilty of soils to withstand disturbance. This is reported in categories: % small (<53um), % medium (53-250 um), and % large (>250 um), for example"
+		},
+		"DOM" : {
+			"field_long_name" : "dissolved organic matter",
+			"Description" : "Organic carbon that's easily dissolved and transported in soil water. Measured as the amount of organic matter that passes through the ~0.4um filter in the first step of fractionation"
+		},
+		"IPOM" : {
+			"field_long_name" : "light particulate organic matter",
+			"Description" : "Light (<1.85g/cm3) POM, typically floated off in density fractionation. lPOM is considered \"new\" and \"labile\" organic matter that has a short mean residence time in soils "
+		},
+		"hPOM" : {
+			"field_long_name" : "heavy particular organic matter",
+			"Description" : "Heavy (>1.85g/cm3) POM, separated by size (>53um) and density (heavier than lPOM, lighter than MAOM). "
+		},
+		"MAOM" : {
+			"field_long_name" : "mineral associated organic matter",
+			"Description" : "Heavy (>1.85g/cm3) and fine (<53um) organic matter, seperated by size and density. MAOM is sorbed to soil mineral surfaces and is the fraction with the longest mean residence time in soils "
+		},
+		"ADF" : {
+			"field_long_name" : "acid detergent fiber",
+			"Description" : "A measure of forage digestibilty "
+		},
+		"NDF" : {
+			"field_long_name" : "neutral detergent fiber",
+			"Description" : "A measure of total fiber, which is used to determine how much to feed an animal "
+		}
+	},
+	"MMM_FFAR_soil_water_data_sample" : {
+		"Dataset_Description" : {
+			"field_long_name" : "FFAR Soil Water Dataset",
+			"Description" : "This dataset contains the measurement of soil water content or soil moisture in soil per unit volume and the this dataset is a part of 3M (https://www.noble.org/3M/) project "
+		},
+		"Site" : {
+			"field_long_name" : "Major Geolocation",
+			"Description" : "The sites are mainly located at Michigan, Oklahoma and Wyoming."
+		},
+		"Block" : {
+			"field_long_name" : "Major Area in each site",
+			"Description" : "Several blocks in Oklahoma(6), Michigan(3) and Wyoming(5)"
+		},
+		"Plot" : {
+			"field_long_name" : "Sub location in each plot",
+			"Description" : "Each Block contains two plots."
+		},
+		"Triangle" : {
+			"field_long_name" : "Georeferenced Triangle",
+			"Description" : "There are 12 randomly placed georeferenced Triangles per plot."
+		},
+		"Core" : {
+			"field_long_name" : "Each Vertex of Triangle",
+			"Description" : "A Core is placed in each vertex of the Triangle"
+		},
+		"Depth" : {
+			"field_long_name" : "Soil Depth in Core",
+			"Description" : "There are 4 different depths in each core and those are in depth 0-15cm, 15-30cm, 30-50cm and 50-100cm."
+		},
+		"Sample #" : {
+			"field_long_name" : "Unique Sample ID",
+			"Description" : "Each sample has a unique sample ID"
+		},
+		"epoch_time" : {
+			"field_long_name" : "Time Stamp",
+			"Description" : "The date and time is recorded at the time of experiment. "
+		},
+		"soil water content" : {
+			"field_long_name" : "Soil water content per unit volume",
+			"Description" : "Water volume im 1 cm3 of wet soil [cm3/cm3] in a particular time."
+		}
+	}
+}

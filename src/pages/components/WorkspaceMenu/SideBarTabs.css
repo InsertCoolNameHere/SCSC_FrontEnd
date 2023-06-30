@@ -1,0 +1,123 @@
+.SideBarContainer{
+    position: fixed;
+    top: 55px;
+}
+
+.SideBarButton{
+    background-color: white;
+}
+
+.IconComparisons{
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+
+.GenericMenu{
+    position:fixed;
+    overflow: auto;
+    min-height: 50%;
+    max-height: 80%;
+    left: 73px;
+    top: 55px;
+    width: 400px;
+    align-items: center;
+}
+
+.IndividualIcon{
+    width: 250px;
+}
+
+.SiteComparisonDivider{
+    width: 375px;
+}
+
+.MeasurementsMenuDivider{
+    width: 360px;
+}
+
+.IconComparisonSelector{
+    margin-bottom: 20px;
+}
+
+.MeasurementsMenuHeader{
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
+.DataRequestHeader{
+    margin-top: 20px;
+}
+
+.DropBoxMenus{
+    margin-top: 10px;
+}
+
+.DateMenu{
+    padding-top: 2.5%;
+    width: 375px;
+    margin-left: 12.5px;
+    margin-right: 12.5px;
+    margin-top: 8px;
+}
+
+.IndividualDateSlider{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+.DropDownIndividualBox{
+    margin-top: 1.5px;
+    margin-bottom: 1.5px;
+}
+
+.DateSliders{
+    margin-top: 15px;
+}
+
+.DropBoxDivider{
+    width: 360px;
+}
+
+.CheckBox{
+    margin-left: 7.5px;
+}
+
+.DatePickers{
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.StatisticsTypeSelector{
+    position: fixed;
+    margin-right: 10%;
+}
+
+.DataRangeSliders{
+    width: 375px;
+    margin-left: 12.5px;
+    margin-right: 12.5px;
+    margin-top: 15px;
+}
+
+.DataRequestSubmitButtons{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.RangeSlider{
+    margin-top: -10px;
+}
+
+
+.RangeSliderDivider{
+    width: 360px;
+}
+
+.DataRequestDropDown{
+    margin-left: 12.5px;
+    margin-right: 12.5px;
+    width: 375px;
+}

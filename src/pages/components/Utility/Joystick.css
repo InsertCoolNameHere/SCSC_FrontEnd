@@ -1,0 +1,11 @@
+.JoystickContainer {
+    position: absolute;
+    z-index: auto;
+    right: 1%;
+    top: 10px;
+}
+.ControlButtonContainer {
+    position: absolute;
+    right: 1%;
+    top: 60px;
+}
