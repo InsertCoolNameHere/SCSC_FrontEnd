@@ -28,6 +28,8 @@ function Visualization() {
     const [zoomTo, setZoomTo] = useState(null);
 
     const tabContext = useTabs();
+
+    console.log("TC", tabContext);
     const siteComparisonContext = useSiteComparisons(collection);
     const Deck = UseDeckMap(siteComparisonContext, tabContext, setProperties, setFields, setOpenProperties, 'point');
     const dataContext = useData(dataCollections, collection, metadata, shapes, Deck, siteComparisonContext);

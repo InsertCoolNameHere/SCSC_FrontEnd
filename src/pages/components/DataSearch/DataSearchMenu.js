@@ -43,6 +43,7 @@ export default function DataSearchMenu({dataContainerContext, zoomTo}) {
     const [filtered, setFiltered] = useState(data);
 
     useEffect(() => {
+        console.log("DC",dataContainerContext);
         if (searchQuery == "") {
             setFiltered([...data]);
         } else {
@@ -58,7 +59,7 @@ export default function DataSearchMenu({dataContainerContext, zoomTo}) {
             <TextField
                 sx={{ marginTop: '20px' }}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Triangle ID..."    
+                placeholder="Dataset Name/Tag..."    
             />
 
             <Button sx={{ marginTop: '20px' }} startIcon={<SearchIcon />} />

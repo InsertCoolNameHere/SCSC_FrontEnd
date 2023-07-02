@@ -93,7 +93,37 @@ export const UseDeckMap = (siteComparisonContext, tabContext, setProperties, set
             "properties" : {
                "" : ""
             },
-            "fieldValues" : [100],
+            "fieldValues" : [105],
+            "Triangle_Id" : "MI_B1_P1_T1"
+         },
+         {
+            "type" : "Feature",
+            "geometry" : {
+               "type" : "Point",
+               "coordinates" : [
+                  -104.1890508782964,
+                  40.3128415375913
+               ]
+            },
+            "properties" : {
+               "" : ""
+            },
+            "fieldValues" : [105],
+            "Triangle_Id" : "MI_B1_P1_T1"
+         },
+         {
+            "type" : "Feature",
+            "geometry" : {
+               "type" : "Point",
+               "coordinates" : [
+                  -77.1890508782964,
+                  41.3128415375913
+               ]
+            },
+            "properties" : {
+               "" : ""
+            },
+            "fieldValues" : [105],
             "Triangle_Id" : "MI_B1_P1_T1"
          }];
 
@@ -141,19 +171,19 @@ export const UseDeckMap = (siteComparisonContext, tabContext, setProperties, set
    };
 
    const getIconLayer = (formattedResults, onShapeClick) => {
-      const ICON_MAPPING = { marker: { x: 0, y: 0, width: 32, height: 32, mask: true } };
+      const ICON_MAPPING = { marker: { x: 0, y: 0, width: 64, height: 64, mask: true } };
       return new IconClusterLayer({
          id: 'icon-layer',
          pickable: true,
          data: formattedResults,
-         iconAtlas: './T.svg',
+         iconAtlas: './T2.svg',
          iconMapping: ICON_MAPPING,
          sizeScale: 15,
          getIcon: d => 'marker',
          getPosition: d => d.coordinates,
          getSize: d => 2,
-         getColor: d => [249, 165, 51],
-         getFillColor: d => [249, 165, 51],
+         getColor: d => [1, 122, 70],
+         getFillColor: d => [153, 88, 14],
          onClick: handleShapeClick
      })
    };

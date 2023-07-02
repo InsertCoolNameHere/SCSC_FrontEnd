@@ -33,15 +33,27 @@ END OF TERMS AND CONDITIONS
 
 import { ButtonGroup, Button, Tooltip } from '@mui/material';
 import "./SideBarTabs.css";
-import { lightBlue } from '@mui/material/colors';
+import { green, lightBlue } from '@mui/material/colors';
+import { createTheme } from '@mui/material/styles';
+
+const b_theme = createTheme({
+    palette: {
+        primary: {
+        main: '#1e4d2b',
+        },
+        secondary: {
+        main: '#11cb5f',
+        },
+    },
+});
 
 export default function SideBarTabs({tabContext}) {
     return(
-        <ButtonGroup className = "SideBarContainer" variant = "contained" orientation = "vertical">
+        <ButtonGroup size="large" className = "SideBarContainer" variant = "contained" theme={b_theme} color="primary" orientation = "vertical" sx={{ bgcolor: green}}>
             {tabContext.mapTabs((tab) => (
                 <Tooltip placement="right" arrow title={tab.title} key={tab.title}>
-                    <Button className="SideBarButton" onClick={ () => tabContext.toggleTab(tab.title) }>
-                        <tab.icon sx={tabContext.tab === tab.title ? {fontSize: 35} : {fontSize: 35, color: lightBlue[500]}} />
+                    <Button className="SideBarButton" onClick={ () => tabContext.toggleTab(tab.title) } theme={b_theme} color="primary">
+                        <tab.icon sx={tabContext.tab === tab.title ? {fontSize: 35} : {fontSize: 35, color: lightBlue[100]}} />
                     </Button>
                 </Tooltip>
             ))}

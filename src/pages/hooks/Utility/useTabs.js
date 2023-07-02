@@ -34,18 +34,9 @@ END OF TERMS AND CONDITIONS
 import React, { useState } from "react";
 
 import CollectionMenu from '../../components/Collections/CollectionMenu';
-import DataRequest from '../../components/Constraints/DataRequest';
-import MeasurementsMenu from '../../components/MeasurementsMenu/MeasurementsMenu';
-import SiteComparisonMenu from '../../components/SiteComparison/SiteComparisonMenu';
 import DataSearchMenu from '../../components/DataSearch/DataSearchMenu';
-import ExportMenu from '../../components/Export/ExportMenu';
-
-import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 import SearchIcon from '@mui/icons-material/Search';
-import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import DatasetIcon from '@mui/icons-material/Dataset';
-import QueryStatsIcon from '@mui/icons-material/QueryStats';
-import EditNoteIcon from '@mui/icons-material/EditNote';
 
 const definedTabs = {
     "Collection Selector": {
@@ -53,31 +44,12 @@ const definedTabs = {
         icon: DatasetIcon,
         contentType: CollectionMenu
     },
-    "Data Search": {
-        title: "Data Search",
+    "Dataset Search Pane": {
+        title: "Dataset Search Pane",
         icon: SearchIcon,
         contentType: DataSearchMenu
     },
-    "Data Request": {
-        title: "Data Request",
-        icon: EditNoteIcon,
-        contentType: DataRequest
-    },
-    "Measurements": {
-        title: "Measurements",
-        icon: QueryStatsIcon,
-        contentType: MeasurementsMenu
-    },
-    "Site Comparison": {
-        title: "Site Comparison",
-        icon: AddLocationAltIcon,
-        contentType: SiteComparisonMenu
-    },
-    "Export": {
-        title: "Export",
-        icon: FileDownloadIcon,
-        contentType: ExportMenu
-    }
+    
 }
 
 export default function useTabs(){
@@ -114,9 +86,11 @@ function closeTab(context){
 }
 
 function getContent(props, context){
+
     if(!context.tab) 
         return;
 
+    console.log("YYY",context.tab, definedTabs[context.tab]);
     const ContentComponent = definedTabs[context.tab].contentType;
     return <ContentComponent {...props} />
 }

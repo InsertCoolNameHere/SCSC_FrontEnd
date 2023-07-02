@@ -33,10 +33,10 @@ function Top_Menubar() {
     return (
         <>
 
-            <AppBar style={{ background: '#2E3B55' }}>
+            <AppBar style={{ background: '#1E4D2B' }}>
                 <Toolbar>
                     <Link to="/scsc" rel="noreferrer">
-                        <img src={require("../imgs/logo_low_res.png")} width="23%" height="auto" />
+                        <img src={require("../imgs/logo_low_res_whitebg.png")} width="23%" height="auto" />
                     </Link>
                     <IconButton edge="start" aria-label="more" id="long-button" aria-controls="menu-appbar" aria-haspopup="true" onClick={handleClick} sx={{ marginLeft: "auto" }} >
                         <AccountCircleIcon sx={{ color: "white" }} />
