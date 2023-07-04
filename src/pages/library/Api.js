@@ -40,7 +40,7 @@ export class Api {
     /**
      * Build URL from constants
      */
-    static url = `https://sustain.cs.colostate.edu:31415/ffar/`;
+    // static url = `https://sustain.cs.colostate.edu:31415/ffar/`;
 
 
     /**
