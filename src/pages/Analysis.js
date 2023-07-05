@@ -14,12 +14,14 @@ import CandleStickChart from "../analytics/charts/candlestick/CandleStickChart"
 import RadarChartVisualizingYearlyActivities from "../analytics/charts/radar/RadarChartVisualizingYearlyActivities"
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
+import MinusIcon from '@mui/icons-material/Clear';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import "../analytics/analytics.css";
 import { WidthProvider, Responsive } from "react-grid-layout";
 import _ from "lodash";
 import Box from '@mui/material/Box'
+import ReactSearchBox from "react-search-box";
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 // saveToLS("items", [])
@@ -47,6 +49,29 @@ class Analytics extends React.Component {
       plotCategory: { value: 'all'},
       plotNames: { value: ['ColumnWithRotatedLabels', 'SimpleColumnChart', 'CandleStickChart', 'LineGraph', 'MapsWithAnimatedBubbles', 'PieChart', 'RadarChartVisualizingYearlyActivities', 'MotionChart']},
       plotType: { value: 'ColumnWithRotatedLabels'},
+      newCounter: 0,
+      searchData: [
+        {
+          key: "john",
+          value: "John Doe",
+        },
+        {
+          key: "jane",
+          value: "Jane Doe",
+        },
+        {
+          key: "mary",
+          value: "Mary Phillips",
+        },
+        {
+          key: "robert",
+          value: "Robert",
+        },
+        {
+          key: "karius",
+          value: "Karius",
+        },
+      ],
     };
 
     this.onAddItem = this.onAddItem.bind(this);
@@ -63,6 +88,7 @@ class Analytics extends React.Component {
     const removeStyle = {
       position: "absolute",
       right: "2px",
+      zIndex: 99999,
       top: 0,
       cursor: "pointer"
     };
@@ -85,20 +111,18 @@ class Analytics extends React.Component {
     } else if (el.plotType.localeCompare('MotionChart') == 0){
       plot =  <MotionChart id={el.i}/>;
     } 
-
-    
     
     
     return (
       <div key={i} data-grid={el}>
-          <span className="text">{i}</span>
+          {/* <span className="text">{i}</span> */}
           
         <span
           className="remove"
           style={removeStyle}
           onClick={this.onRemoveItem.bind(this, i)}
         >
-          x
+          <MinusIcon />
         </span>
         {plot}
        
@@ -111,13 +135,14 @@ class Analytics extends React.Component {
     this.setState({
       // Add a new item. It must have a unique key!
       items: this.state.items.concat({
-        i: "n" + (this.state.items.length+1),
-        x: (this.state.items.length * 4) % (this.state.cols || 3),
-        y: 0, // puts it at the bottom
+        i: "n" + this.state.newCounter,
+        x: (this.state.items.length * 4) % (this.state.cols || 12),
+        y: this.state.items.length, // puts it at the bottom
         w: 4,
         h: 4,
         plotType: plotType
       }),
+      newCounter: this.state.newCounter + 1
     });
   }
 
@@ -192,7 +217,9 @@ class Analytics extends React.Component {
         <h1 className="page-title">
           Visualization &nbsp;
           <small>
-            <small>United States</small>
+            <small><span className="circle bg-default text-black">
+                  <i className="fa fa-map-marker" />
+              </span> 8 Sites</small>
           </small>
         </h1>
         <Row>
@@ -203,16 +230,14 @@ class Analytics extends React.Component {
           </Col>
 
           <Col lg={4}>
-            <Box sx={{width: "95%", backgroundColor: "grey", p: 2,}}>
-              <p>
-                Dataset Name: <strong> Dataset A</strong>
-              </p>
-              <p>
-                <span className="circle bg-default text-white">
-                  <i className="fa fa-map-marker" />
-                </span>{" "}
-                &nbsp; 146 Sites, 2759 Data Entries
-              </p>
+            <Box sx={{width: "95%", backgroundColor: "#EEF4ED", p: 2,}}>
+            <p><h2>Plot Data </h2>  </p>         
+              <p><ReactSearchBox
+                placeholder="Search Datasets"
+                value="Doe"
+                data={this.state.searchData}
+                callback={(record) => console.log(record)}
+              /></p>
               <p>
               <Dropdown options={plotCategories} onChange={this._onSelectPlotCategory}  placeholder="Select an Plot Type" />
               </p>
@@ -227,25 +252,25 @@ class Analytics extends React.Component {
               </p>
               <p>
               <Button variant="contained" onClick={() => this.onAddItem(this.state.plotType.value)} startIcon={<AddIcon />}>
-                Create Chart
+                Add Chart
               </Button>
-              <p></p>
-              <Button variant="contained" onClick={this.onRemoveAll} startIcon={<AddIcon />}>
+              &nbsp;
+              <Button color="error" variant="contained" onClick={this.onRemoveAll} startIcon={<MinusIcon />}>
                 Remove All Charts
               </Button>
               </p>
             </Box>
           </Col>
         </Row>
-        <ResponsiveReactGridLayout
-          onLayoutChange={(layout) =>
-            this.onLayoutChange(layout, this.state.items)
-          }
-          onBreakpointChange={this.onBreakpointChange}
-          {...this.props}
-        >
-          {_.map(this.state.items, el => this.createElement(el))}
-        </ResponsiveReactGridLayout>
+            <ResponsiveReactGridLayout
+              onLayoutChange={(layout) =>
+                this.onLayoutChange(layout, this.state.items)
+              }
+              onBreakpointChange={this.onBreakpointChange}
+              {...this.props}
+            >
+              {_.map(this.state.items, el => this.createElement(el))}
+            </ResponsiveReactGridLayout>
         {/* <Row>
           <Col lg={6} xl={4} xs={12}>
             <Widget title={<h6> SimpleColumnChart </h6>} close settings>

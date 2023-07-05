@@ -5,7 +5,9 @@
   .react-grid-item {
     transition: all 200ms ease;
     transition-property: left, top;
-    background: rgb(177, 177, 177);
+    background: white;
+    border-style: solid;
+    border-color: rgb(185, 185, 185);
   }
   .react-grid-item img {
     pointer-events: none;

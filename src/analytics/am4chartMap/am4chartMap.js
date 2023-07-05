@@ -48,6 +48,7 @@ function getCitesInformation() {
   class Am4chartMap extends Component {  
   componentDidMount() {
     let map = am4core.create("map", am4maps.MapChart);
+    map.logo.disabled = true;
     map.geodata = am4geodata_usaHigh;
     map.percentHeight = 90;
     map.dy = 10;
@@ -81,8 +82,8 @@ function getCitesInformation() {
     minusButtonHoverState.properties.fill = am4core.color("#354D84");
     let polygonTemplate = polygonSeries.mapPolygons.template;
     polygonTemplate.tooltipText = "{name}";
-    polygonTemplate.fill = am4core.color("#474D84");
-    polygonTemplate.stroke = am4core.color("#6979C9")
+    polygonTemplate.fill = am4core.color("#1E4D2B");
+    polygonTemplate.stroke = am4core.color("#C8C372")
     let hs = polygonTemplate.states.create("hover");
     hs.properties.fill = am4core.color("#354D84");
     let citySeries = map.series.push(new am4maps.MapImageSeries());
