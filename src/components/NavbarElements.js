@@ -20,7 +20,22 @@ align-items: center;
 text-decoration: none;
 padding: 0 1rem;
 height: 100%;
-font-size: 1.3rem;
+font-size: 1.1rem;
+cursor: pointer;
+font-family: "Courier";
+&.active {
+	color: #00000;
+}
+`;
+
+export const NavLinkSmaller = styled(Link)`
+color: #000000;
+display: flex;
+align-items: center;
+text-decoration: none;
+padding: 0 1rem;
+height: 100%;
+font-size: 1rem;
 cursor: pointer;
 font-family: "Courier";
 &.active {

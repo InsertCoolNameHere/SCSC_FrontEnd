@@ -90,7 +90,7 @@ function getContent(props, context){
     if(!context.tab) 
         return;
 
-    console.log("YYY",context.tab, definedTabs[context.tab]);
+    console.log("YYY",context.tab, props);
     const ContentComponent = definedTabs[context.tab].contentType;
     return <ContentComponent {...props} />
 }

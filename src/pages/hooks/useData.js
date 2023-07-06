@@ -62,7 +62,6 @@ export default function useData(dataCollections, collection, metadata, shapes, D
     };
   
     useEffect(() => {
-        getInitialData(context);
         getInitialShapes(shapes, Deck.functions.requestVisualization);
     }, [collection]);
 
@@ -77,69 +76,6 @@ export default function useData(dataCollections, collection, metadata, shapes, D
 
 function getInitialShapes(shapes, requestVisualization) {
     requestVisualization(shapes.name, shapes.fields);
-}
-
-function getDummyData(){
-    const record = [{
-        "Triangle_Id" : "MI_B1_P1_T1",
-        "Sample_Id" : "22_11_26_MI_B1_P1_T1_1_a",
-        "Site" : "Michigan",
-        "Block" : "1",
-        "Plot" : "1",
-        "Triangle" : "1",
-        "Core" : "1",
-        "Depth" : "a",
-        "Sample #" : 1,
-        "Date_Time" : "11/4/22 10:00 AM",
-        "epoch_time" : 1667556000000,
-        "BD" : 68.69,
-        "TC|TN" : 2.23651070435777,
-        "TOC|SOC" : 81.0334427576807,
-        "N" : 4.88946566021609,
-        "RB" : 37.7462890187454,
-        "HA" : 56.0911557848019,
-        "CM" : 58.9374590563052,
-        "MG" : 18.9732727443056,
-        "C:N" : 5.14513073226091,
-        "IC" : 64.4005702989101,
-        "PH" : 34.9939140236023,
-        "CEC" : 37.186041199813,
-        "Texture" : 30.2116865251851,
-        "WSA" : 95.2521276722639,
-        "DOM" : 63.2072367205781,
-        "IPOM" : 38.5700413491948,
-        "hPOM" : 50.9822194395407,
-        "MAOM" : 89.4879794067848,
-        "ADF" : 43.3656197726777,
-        "NDF" : 6.03472199767791
-    }];
-
-    return record;
-    
-}
-
-async function getInitialData({dataContainerContext, collectionBodies, collection}){
-    const tempMap = new Map();
-    const tempArray = [];
-    const triangleIdSet = new Set();
-
-    const record = getDummyData()
-    tempMap.set(record.Sample_Id, record);
-    tempArray.push(record);
-    triangleIdSet.add(record["Triangle_Id"]);
-    console.log("HERE!!");
-    /*const dataStream = (data) => {
-        const record = JSON.parse(data.matchQuery);
-        tempMap.set(record.Sample_Id, record);
-        tempArray.push(record)
-        triangleIdSet.add(record["Triangle_Id"])
-    }
-    await Api.sendStreamRequest("collectionsData", collectionBodies[collection], dataStream);
-    */
-
-    dataContainerContext.setDataMap(tempMap);
-    dataContainerContext.setDataArray(tempArray);
-    dataContainerContext.setTriangleIdSet(triangleIdSet);
 }
 
 function getVariableChartData({dataContainerContext}) {

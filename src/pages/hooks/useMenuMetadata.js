@@ -34,10 +34,11 @@ END OF TERMS AND CONDITIONS
 import { useEffect, useState } from "react";
 import { Api } from "../library/Api";
 
-import dataLabels from "../library/metadata.json";
+//import dataLabels from "../library/metadata.json";
 
 export const useMenuMetadata = (dataCollections) =>{
     
+    const dataLabels = {}
     const [done, setDone] = useState(false);
     const [menuBuildMap, setMenuBuildMap] = useState(new Map());
     const [metaDataMap, setMetaDataMap] = useState(new Map());

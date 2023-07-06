@@ -42,7 +42,7 @@ import IconClusterLayer from '../../components/Map/IconClusterLayer';
 /**
  * This hook manages the data and state for the DeckGL map
  */
-export const UseDeckMap = (siteComparisonContext, tabContext, setProperties, setFields, setOpenProperties, linkType) => {
+export const UseDeckMap = (siteComparisonContext, tabContext, setProperties, setFields, setOpenProperties, linkType, handleClickDescOpen) => {
 
    const [shapeLayer, setShapeLayer] = useState([]);
    const [iconLayer, setIconLayer] = useState([]);
@@ -154,13 +154,14 @@ export const UseDeckMap = (siteComparisonContext, tabContext, setProperties, set
     */
 
    const handleShapeClick = async (info, event) => {
-      if (info.object.properties.cluster) return;
+      /*if (info.object.properties.cluster) return;
       siteComparisonContext.addSiteComparison(info.object.properties.fieldValues[0]);
       await siteComparisonContext.getSiteData(info.object.properties.fieldValues[0]);
       tabContext.openTab("Site Comparison");
       setProperties(info.object.properties.properties);
       setFields(info.object.properties.fieldValues);
-      setOpenProperties(true);
+      setOpenProperties(true);*/
+      handleClickDescOpen();
    };
 
    const requestVisualization = (collection, fields) => {
