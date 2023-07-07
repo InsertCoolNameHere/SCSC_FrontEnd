@@ -219,7 +219,7 @@ class Analytics extends React.Component {
           <small>
             <small><span className="circle bg-default text-black">
                   <i className="fa fa-map-marker" />
-              </span> 8 Sites</small>
+              </span> 9 Sites</small>
           </small>
         </h1>
         <Row>
@@ -230,7 +230,7 @@ class Analytics extends React.Component {
           </Col>
 
           <Col lg={4}>
-            <Box sx={{width: "95%", backgroundColor: "#EEF4ED", p: 2,}}>
+            <Box sx={{width: "95%", backgroundColor: "#EEF4ED", p: 5,}}>
             <p><h2>Plot Data </h2>  </p>         
               <p><ReactSearchBox
                 placeholder="Search Datasets"
