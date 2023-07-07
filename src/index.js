@@ -6,7 +6,7 @@ import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Datasets from "./pages/Datasets";
 import Models from "./pages/Models";
-import Visualization from "./pages/Visualization";
+import DataDashboard from "./pages/DataDashboard";
 import Analysis from "./pages/Analysis";
 import About from "./pages/About";
 import Help from "./pages/Help";
@@ -36,7 +36,7 @@ export default function App() {
           <Route path="help" element={<Help />} />
           <Route path="datasets" element={<Datasets />} />
           <Route path="models" element={<Models />} />
-          <Route path="visualization" element={<Visualization />} />
+          <Route path="dashboard" element={<DataDashboard />} />
           <Route path="analysis" element={<Analysis />} />
           <Route path="profile" element={<Profile />} />
           <Route path="api" element={<ExternalApi />} />

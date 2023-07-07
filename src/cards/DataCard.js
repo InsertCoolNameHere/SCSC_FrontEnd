@@ -58,7 +58,7 @@ function DataCard({ data_name, uploader_name, num_files, type_string, total_size
                     <p class="card-text"><b>{num_files}</b>&nbsp;Files · (<b>{type_string}</b>)</p>
                     <ButtonGroup variant="contained" size="small" aria-label="small button group">
                         <Button variant="outlined" color="secondary" >Details</Button>
-                        <Button variant="outlined" href="visualization">Visualize</Button>
+                        <Button variant="outlined" href="dashboard">Visualize</Button>
                     </ButtonGroup>
                     <Box sx={{ m: 1 }} />
                     <ButtonGroup variant="contained" size="small" aria-label="small button group">

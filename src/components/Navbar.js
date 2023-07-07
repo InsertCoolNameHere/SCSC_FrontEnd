@@ -2,6 +2,7 @@ import * as React from 'react';
 import {
   Nav,
   NavLink,
+  NavLinkSmaller,
   NavMenu,
 } from './NavbarElements';
 import Drawer from '@mui/material/Drawer';
@@ -84,13 +85,13 @@ function Navbar(props) {
         <Construction />
           Models
         </NavLink>
-        <NavLink to='/visualization'  className={({ isActive }) => (isActive ? 'active font-bold' : 'inactive')}>
+        <NavLinkSmaller to='/dashboard' className={({ isActive }) => (isActive ? 'active font-bold' : 'inactive')}>
         <Place />
-          Visualization
-        </NavLink>
+          Data Dashboard
+        </NavLinkSmaller>
         <NavLink to='/analysis'  className={({ isActive }) => (isActive ? 'active font-bold' : 'inactive')}>
         <Assessment />
-          Analysis
+          Visualization
         </NavLink>
         <NavLink to='/api'  className={({ isActive }) => (isActive ? 'active font-bold' : 'inactive')}>
         <Cable />

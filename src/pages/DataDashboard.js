@@ -15,10 +15,22 @@ import Menus from "./components/WorkspaceMenu/Menus";
 import useTabs from "./hooks/Utility/useTabs";
 import { useMenuMetadata } from "./hooks/useMenuMetadata";
 import useChartingControls from "./hooks/Charting/useChartingControls";
+import DataDescriptionPopup from '../cards/popups/DataDescriptionPopup';
 
-function Visualization() {
+function DataDashboard() {
+
+    const [dataDescOpen, setDataDescOpen] = useState(false);
+    
+    const handleClickDescOpen = () => {
+        setDataDescOpen(true);
+    };
+    const handleDescClose = () => {
+        setDataDescOpen(false);
+    };
+
 
     const metadata = useMenuMetadata(dataCollections);
+    
     const chartingControlsContext = useChartingControls();
     const [shapes, setShapes] = useState(shapeCollections[1]); // setter will be used when Flux is integrated
     const [collection, setCollection] = useState(dataCollections[0]);
@@ -31,7 +43,7 @@ function Visualization() {
 
     console.log("TC", tabContext);
     const siteComparisonContext = useSiteComparisons(collection);
-    const Deck = UseDeckMap(siteComparisonContext, tabContext, setProperties, setFields, setOpenProperties, 'point');
+    const Deck = UseDeckMap(siteComparisonContext, tabContext, setProperties, setFields, setOpenProperties, 'point', handleClickDescOpen);
     const dataContext = useData(dataCollections, collection, metadata, shapes, Deck, siteComparisonContext);
     const chartingContext = useCharting(collection, dataContext, chartingControlsContext, siteComparisonContext);
     
@@ -75,7 +87,7 @@ function Visualization() {
 
     return (
             <div>
-                <h1>Visualization</h1>    
+                <h1>Data Dashboard</h1>    
                 <UsMap
                     layers={[Deck.state.iconLayer]}
                     Deck={Deck}
@@ -83,8 +95,9 @@ function Visualization() {
                 />
                 
                 { metadata.done ? UIComponents(): <CircularProgress/> }
+                <DataDescriptionPopup data_name={"Scientific Dataset # 1"} handleClose={handleDescClose} open={dataDescOpen} />
             </div>
     );
 }
 
-export default Visualization;
+export default DataDashboard;
