@@ -82,40 +82,51 @@ function ColumnWithRotatedLabels(props) {
       
       
       // Set data
-      var data = [{
-        country: "USA",
-        value: 2025
-      }, {
-        country: "China",
-        value: 1882
-      }, {
-        country: "Japan",
-        value: 1809
-      }, {
-        country: "Germany",
-        value: 1322
-      }, {
-        country: "UK",
-        value: 1122
-      }, {
-        country: "France",
-        value: 1114
-      }, {
-        country: "India",
-        value: 984
-      }, {
-        country: "Spain",
-        value: 711
-      }, {
-        country: "Netherlands",
-        value: 665
-      }, {
-        country: "South Korea",
-        value: 443
-      }, {
-        country: "Canada",
-        value: 441
-      }];
+      var data = [{country: 'South Dakota', value: 1},
+      {country: 'ND', value: 1},
+      {country: 'OH', value: 1},
+      {country: 'Georgia', value: 1},
+      {country: 'Michigan', value: 1},
+      {country: 'Nebraska', value: 1},
+      {country: 'Michigan', value: 1},
+      {country: 'Michigan', value: 2},
+      {country: 'Ohio', value: 3},
+      {country: 'Illinois', value: 1},
+      {country: 'Illinois', value: 2},
+      {country: 'Illinois', value: 3},
+      {country: 'Texas', value: 1},
+      {country: 'North Dakota', value: 1},
+      {country: 'Colorado', value: 3},
+      {country: 'Texas', value: 4},
+      {country: 'Kansas', value: 5},
+      {country: 'Kentucky', value: 6},
+      {country: 'Maine', value: 1},
+      {country: 'Maine', value: 2},
+      {country: 'Ohio', value: 1},
+      {country: 'Ohio', value: 2},
+      {country: 'Michigan', value: 3},
+      {country: 'Illinois', value: 1},
+      {country: 'Tennessee', value: 1},
+      {country: 'Illinois', value: 1},
+      {country: 'Ohio', value: 1},
+      {country: 'Iowa', value: 1},
+      {country: 'Illinois', value: 1},
+      {country: 'Colorado', value: 1},
+      {country: 'Alabama', value: 1},
+      {country: 'Iowa', value: 1},
+      {country: 'Iowa', value: 1},
+      {country: 'Iowa', value: 2},
+      {country: 'Nebraska', value: 1},
+      {country: 'Montana', value: 1},
+      {country: 'Montana', value: 1},
+      {country: 'Montana', value: 1},
+      {country: 'Georgia', value: 1},
+      {country: 'Virginia', value: 1},
+      {country: 'Colorado', value: 1},
+      {country: 'Colorado', value: 2},
+      {country: 'Colorado', value: 3},
+      {country: 'Minnesota', value: 1},
+      {country: 'Maryland', value: 1}];
       
       xAxis.data.setAll(data);
       series.data.setAll(data);
@@ -130,7 +141,6 @@ function ColumnWithRotatedLabels(props) {
       root.dispose(); 
     };
   }, []);
-
   return (
     <div id={props.id} style={{ width: "100%", height: "100%" }}></div>
   );

@@ -35,7 +35,9 @@ function SimpleColumnChart(props) {
       var value = 100;
       
       function generateData() {
-        value = Math.round((Math.random() * 10 - 5) + value);
+        const temp = [1, 2, 3, 4, 5];
+        const random = Math.floor(Math.random() * temp.length);
+        value = temp[random];
         am5.time.add(date, "day", 1);
         return {
           date: date.getTime(),

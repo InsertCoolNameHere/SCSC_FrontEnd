@@ -35,10 +35,12 @@ function LineGraph(props) {
       // Generate random data
       var date = new Date();
       date.setHours(0, 0, 0, 0);
-      var value = 100;
+      var value = 3;
       
       function generateData() {
-        value = Math.round((Math.random() * 10 - 5) + value);
+        const temp = [1, 2, 3, 4, 5];
+        const random = Math.floor(Math.random() * temp.length);
+        value = temp[random];
         am5.time.add(date, "day", 1);
         return {
           date: date.getTime(),
@@ -94,7 +96,7 @@ function LineGraph(props) {
       
       
       // Set data
-      var data = generateDatas(1200);
+      var data = generateDatas(50);
       series.data.setAll(data);
       
       

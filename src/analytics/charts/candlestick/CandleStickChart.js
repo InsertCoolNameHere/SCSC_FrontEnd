@@ -18,15 +18,17 @@ function CandleStickChart(props) {
     function generateChartData() {
         var chartData = [];
         var firstDate = new Date();
-        firstDate.setDate(firstDate.getDate() - 1000);
+        firstDate.setDate(firstDate.getDate() - 16070);
         firstDate.setHours(0, 0, 0, 0);
-        var value = 1200;
-        for (var i = 0; i < 5000; i++) {
+        var value = 5;
+        for (var i = 0; i < 60; i++) {
           var newDate = new Date(firstDate);
           newDate.setDate(newDate.getDate() + i);
       
-          value += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 10);
-          var open = value + Math.round(Math.random() * 16 - 8);
+          const temp = [1, 2, 3, 4, 5];
+         const random = Math.floor(Math.random() * temp.length);
+         value = temp[random];
+          var open = value + Math.round(Math.random() );
           var low = Math.min(value, open) - Math.round(Math.random() * 5);
           var high = Math.max(value, open) + Math.round(Math.random() * 5);
       
@@ -83,7 +85,7 @@ function CandleStickChart(props) {
           fill: color,
           calculateAggregates: true,
           stroke: color,
-          name: "MDXI",
+          name: "soil.depth.inc",
           xAxis: xAxis,
           yAxis: yAxis,
           valueYField: "value",
@@ -96,11 +98,11 @@ function CandleStickChart(props) {
           openValueYGrouped: "open",
           valueYGrouped: "close",
           legendValueText:
-            "open: {openValueY} low: {lowValueY} high: {highValueY} close: {valueY}",
+            "mean: {openValueY} min: {lowValueY} max: {highValueY}",
           legendRangeValueText: "{valueYClose}",
           tooltip: am5.Tooltip.new(root, {
             pointerOrientation: "horizontal",
-            labelText: "open: {openValueY}\nlow: {lowValueY}\nhigh: {highValueY}\nclose: {valueY}"
+            labelText: "mean: {openValueY}\nmin: {lowValueY}\nmax: {highValueY}"
           })
         })
       );
