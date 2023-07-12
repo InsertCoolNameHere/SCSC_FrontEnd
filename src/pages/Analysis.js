@@ -105,19 +105,146 @@ class Analytics extends React.Component {
 
     datasetTitle: 'Prairie MA',
     datasetNumSites: "159 Sites",
-    datasetSubTitle: "159 Sites",
-    datasetDescription: "159 Sites",
-    datasetContributors: "159 Sites",
-    datasetTemporalCoverage: "159 Sites",
-    datasetSpatialCoverage: "159 Sites",
-    datasetTimeScale: "159 Sites",
-    datasetAttributesAndStatisticalSummary: "159 Sites",
-    datasetDatasetFormatAndSize: "159 Sites",
-    datasetMissingData: "159 Sites",
-    datasetUsageRestriction: "159 Sites",
-    datasetCitations: "159 Sites",
-    datasetSourceInformation: "159 Sites",
-    datasetDataAccessHistory: "159 Sites",
+    datasetSubTitle: "0.5x0.5 Global Daily Analysis of Soil.",
+    datasetDescription: "This data set is part of products suite from the CPC Unified Precipitation Project that are underway at NOAA Climate Prediction Center (CPC). The primary goal of the project is to create a suite of unified precipitation products with consistent quantity and improved quality by combining all information sources available at CPC and by taking advantage of the optimal interpolation (OI) objective analysis technique. See CPC's data docs for more details. Values are accumulated for a day but that day can be at different times for different locations. See documentation.",
+    datasetContributors: <ul>
+    <li>Sam Armstrong</li>
+    <li>Saptashwa Mitra</li>
+    </ul>,
+    datasetTemporalCoverage:  <ul>
+      <li>Daily 1979/01/01 to 2023/07/10. Some dates are missing at the source.</li>
+      <li>Long Term Means of daily, monthly for years 1981 to 2010.</li>
+      </ul>,
+    datasetSpatialCoverage: <ul>
+    <li>.5 degree latitude x .5 degree longitude global grid (720x360).</li>
+    <li>89.5N - 89.5S, 0.25E - 359.75E.</li>
+    </ul>,
+    datasetTimeScale: "MM/DD/YYYY",
+    datasetAttributesAndStatisticalSummary: <table>
+  <tr>
+    <th>Variable</th>
+    <th>Avg</th>
+    <th>Std</th>
+    <th>Min</th>
+    <th>Max</th>
+  </tr>
+  <tr>
+    <td>Year</td>
+    <td>2010</td>
+    <td>2</td>
+    <td>2002</td>
+    <td>2003</td>
+  </tr>
+  <tr>
+    <td>Site</td>
+    <td>1</td>
+    <td>2</td>
+    <td>1</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Exp</td>
+    <td>1</td>
+    <td>2</td>
+    <td>1</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Tid</td>
+    <td>1</td>
+    <td>2</td>
+    <td>1</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Sid</td>
+    <td>1</td>
+    <td>2</td>
+    <td>1</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>soil.depth.inc</td>
+    <td>3</td>
+    <td>2</td>
+    <td>1</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>soil.depth.upper</td>
+    <td>22</td>
+    <td>10</td>
+    <td>2</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>soil.depth.lower</td>
+    <td>32</td>
+    <td>12</td>
+    <td>5</td>
+    <td>55</td>
+  </tr>
+  <tr>
+    <td>reps</td>
+    <td>12</td>
+    <td>3</td>
+    <td>4</td>
+    <td>24</td>
+  </tr>
+  <tr>
+    <td>plot.width</td>
+    <td>600</td>
+    <td>223</td>
+    <td>200</td>
+    <td>100</td>
+  </tr>
+  <tr>
+    <td>plot.length</td>
+    <td>556</td>
+    <td>124</td>
+    <td>212</td>
+    <td>760</td>
+  </tr>
+  <tr>
+    <td>tillage.depth</td>
+    <td>4</td>
+    <td>1</td>
+    <td>1</td>
+    <td>12</td>
+  </tr>
+  <tr>
+    <td>tillage.freq</td>
+    <td>3</td>
+    <td>1</td>
+    <td>1</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>total.cropping.intensity</td>
+    <td>4</td>
+    <td>1</td>
+    <td>1</td>
+    <td>9</td>
+  </tr>
+  
+</table>,
+    datasetDatasetFormatAndSize: "781.3 kB CSV File",
+    datasetMissingData: "NAN",
+    datasetUsageRestriction: "None",
+    // datasetCitations: <ul><li>"(Interpolation algorithm) Xie_et_al_2007_JHM_EAG.pdf Xie, P., A. Yatagai, M. Chen, T. Hayasaka, Y. Fukushima, C. Liu, and S. Yang (2007), A gauge-based analysis of daily precipitation over East Asia, J. Hydrometeorol., 8, 607. 626.</li> <li><(Gauge Algorithm Evaluation) Chen_et_al_2008_JGR_Gauge_Algo.pdf Chen, M., W. Shi, P. Xie, V. B. S. Silva, V E. Kousky, R. Wayne Higgins, and J. E. Janowiak (2008), Assessing objective techniques for gauge-based analyses of global daily precipitation, J. Geophys. Res., 113, D04110, doi:10.1029/2007JD009132.</li><li> Please note: If you acquire CPC Global Unified Gauge-Based Analysis of Daily Precipitation data products from PSL, we ask that you acknowledge us in your use of the data. This may be done by including text such as CPC Global Unified Gauge-Based Analysis of Daily Precipitation data provided by the NOAA PSL, Boulder, Colorado, USA, from their website at https://psl.noaa.gov in any documents or publications using these data. We would also appreciate receiving a copy of the relevant publications. This will help PSL to justify keeping the data freely available online in the future. Thank you!"</li></ul>,
+    datasetCitations: <ul>
+      <li>(Interpolation algorithm) Xie_et_al_2007_JHM_EAG.pdf Xie, P., A. Yatagai, M. Chen, T. Hayasaka, Y. Fukushima, C. Liu, and S. Yang (2007), A gauge-based analysis of daily precipitation over East Asia, J. Hydrometeorol., 8, 607. 626.</li>
+      <li>(Gauge Algorithm Evaluation) Chen_et_al_2008_JGR_Gauge_Algo.pdf Chen, M., W. Shi, P. Xie, V. B. S. Silva, V E. Kousky, R. Wayne Higgins, and J. E. Janowiak (2008), Assessing objective techniques for gauge-based analyses of global daily precipitation, J. Geophys. Res., 113, D04110, doi:10.1029/2007JD009132.</li>
+      <li>Please note: If you acquire CPC Global Unified Gauge-Based Analysis of Daily Precipitation data products from PSL, we ask that you acknowledge us in your use of the data. This may be done by including text such as CPC Global Unified Gauge-Based Analysis of Daily Precipitation data provided by the NOAA PSL, Boulder, Colorado, USA, from their website at https://psl.noaa.gov in any documents or publications using these data. We would also appreciate receiving a copy of the relevant publications. This will help PSL to justify keeping the data freely available online in the future. Thank you!</li>
+    </ul>,
+    datasetSourceInformation: <ul>
+    <li>NCEP/Climate Prediction Center</li>
+    <li>From CPC's FTP directories.</li>
+    </ul>,
+    datasetDataAccessHistory: <ul>
+    <li>Accessed by Sam Armstrong (7/1/1@2:11pm EST)</li>
+    <li>Accessed by Sam Armstrong (7/1/1@4:12pm EST)</li>
+    </ul>,
     datasetMap: [
       {
         latitude: 40.717079,
